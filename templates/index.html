@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="static\css\style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+      <form method="post" action="{{url_for('process_login')}}">
+        <div id="full container">
+            <div class="container">
+                <img src="static\images\img.jpg" alt="logo" class="centered">
+            </div><br><br>
+            <div class="def contain">
+                <div>
+                        <div>
+                            <label for="email">Email address</label> 
+                        </div>
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+                        </div>
+                </div>
+                <div>
+                    <div class="password">
+                        <label for="password">Password</label><br>
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" placeholder="***** "><br>
+                    </div>
+                </div>
+                <div class="login">
+                    <input type="#" name="login" id="login" placeholder="Login">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>
+      </form>
+  </body>
+</html>
