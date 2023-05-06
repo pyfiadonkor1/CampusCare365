@@ -10,7 +10,9 @@ def index():
 def home():
     return render_template('home.html')
 
-
+@app.route("/signup-login")
+def user():
+      return render_template('log.html')
 
 
 if __name__ == "__main__":
