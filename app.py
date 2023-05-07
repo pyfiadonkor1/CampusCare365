@@ -9,6 +9,10 @@ def index():
 def login():
     return render_template("login.html")
 
+@app.route("/schedule", methods=['GET', 'POST'])
+def schedule():
+    return render_template("font.html")
+
 @app.route("/process", methods=['POST'])
 def process_login():
     name = request.form['name']
