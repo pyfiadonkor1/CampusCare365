@@ -11,6 +11,11 @@ body {
     width: 100%;
 }
 
+a{
+    text-decoration: none;
+    color : white;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -123,6 +128,7 @@ button.add {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
 }
 
 button.add:hover{
