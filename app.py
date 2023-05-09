@@ -57,7 +57,7 @@ def planner():
     return render_template('planner.html')
  
  
-@app.route("/mealmate")
+@app.route("/meal-mate")
 def mealmate():
     return render_template("meal.html")
 
