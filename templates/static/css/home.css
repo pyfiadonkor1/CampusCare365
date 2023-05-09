@@ -4,6 +4,20 @@
 	box-sizing: border-box;
 }
 
+a{
+   text-align:center;
+   text-decoration: none;
+   color: black
+}
+
+a:hover{
+	background-image: linear-gradient(
+        rgb(84, 231, 212),
+		rgb(21, 21, 180),
+        rgb(84, 231, 212)
+    );
+}
+
 .header {
 	background-color:#062092;
 	display: flex;
@@ -127,5 +141,12 @@ button i {
 }
 
 .buttons button:hover {
-	background-color: #0CD9D7;
+	background-image: linear-gradient(
+        rgb(21, 21, 180),
+        rgb(84, 231, 212)
+    );
+}
+
+.icons img:hover{
+
 }
