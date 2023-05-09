@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static\css\part.css" rel="stylesheet" type="text/css">
+    <link href="static\css\schedule.css" rel="stylesheet" >
     <title>Document</title>
 </head>
 <body >
-    <form>
-        <div class="container">
+    <div class="container">
             <p class="organise">Be Productive</p><br><br>
             <strong class="organise">Add Schedule</strong>
-            <div class="placeholder"> 
-            <label for="title" class="title">Title</label>
-            <input type="text" id="title" name="title" placeholder="Group Meeting (Zoom)">
-            </div>
+        <form>
+            <div class="form">
+                <div class="placeholder"> 
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Group Meeting (Zoom)">
+                </div>
             <br><br>
             <div>
                 <label for="date">Date:</label>
@@ -26,11 +27,11 @@
                     <label for="time">Time:</label>
                 <input type="time" id="time" name="time" min="08:00" max="18:00" >
             </div>
-           <div class="time">
+           <div class="times">
                 <label for="timed">Time:</label>
                 <input type="time" id="timed" name="time" min="08:00" max="18:00">
                 <label for="time">Time:</label>
-                <input type="time" id="time" name="time" min="08:00" max="18:00"><br><br>
+                <input type="time" id="timer" name="time" min="08:00" max="18:00"><br><br>
             </div>
                 <button type="submit" class="submit">Add Schedule</button>
             </div>

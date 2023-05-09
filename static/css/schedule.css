@@ -1,16 +1,15 @@
 .container {
-    display: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 50vh;
+    margin-right: 50vh;
     font-family: Arial, sans-serif;
     background-color: #F4F4F4;
-    padding: 20;
+    padding: 0;
     border: 1px solid #ccc;
     border-radius: 10px;
     color:rgb(235, 230, 230);
-    
-    height:800vh;
-    width:300vh;
 }
 
 .submit {
@@ -21,7 +20,8 @@
     border-radius: 5px;
 }
 .organise {
-    float: left;
+    position:relative;
+    float: right;
     font-size: large;
     color:black;
     border-radius: 5px;
@@ -29,14 +29,21 @@
     right: 5px;
     position:absolute;
 }
+.time {
+    position: relative;
+}
+
 #time {
+    position:absolute;
     float: left;
     border-radius: 10;
     height:7vh;
-    width: 12vh;
-    background-color: rgb(153, 146, 146);
+    width: 15vh;
+    background-color:  rgb(221, 219, 219);
     border-radius: 5px;
-    -ms-text-size-adjust:auto;
+    top:20px;
+    right:15px;
+    border-color: rgb(221, 219, 219);
 }
 
 label {
@@ -48,30 +55,46 @@ label {
     border-radius: 10px;
     top: 100px;
 }
-.title {
+#title {
     height:10vh;
     width: 50vh;
     border-radius: 10px;
-    position:absolute;
-    top: 100px;
 }
 
 #times{
     background-color: rgb(80, 80, 138);
     align-items: left;
     height:7vh;
-    width: 12vh;
+    width: 15vh;
     border-radius: 5px;
+    position:relative;
+    border-color: rgb(80, 80, 138);
+}
+
+#timer{
+    background-color: rgb(221, 219, 219);
+    align-items: left;
+    height:7vh;
+    width: 15vh;
+    border-radius: 5px;
+    position:relative;
+    border-color:  rgb(221, 219, 219);
+}
+
+.times {
+    position:relative;
 }
 
 #timed{
-    background-color: rgb(153, 146, 146);
+    position:absolute;
+    background-color: rgb(221, 219, 219);
     align-items: left;
     height:7vh;
-    width: 12vh;
+    width: 15vh;
     border-radius: 5px;
-    top: 150px;
-    right: 100px;
+    top: 35px;
+    right: 15px;
+    border-color:  rgb(221, 219, 219);
 }
 .placeholder {
     max-width: 100%;

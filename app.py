@@ -11,7 +11,7 @@ def login():
 
 @app.route("/schedule", methods=['GET', 'POST'])
 def schedule():
-    return render_template("font.html")
+    return render_template("schedule.html")
 
 @app.route("/process", methods=['POST'])
 def process_login():
