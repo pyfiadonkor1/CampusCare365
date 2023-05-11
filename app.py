@@ -1,7 +1,8 @@
 from flask import Flask, session, render_template, request, redirect
+import sqlite3
 
 app = Flask(__name__, template_folder="templates", static_folder="templates/static")
-
+DATABASE ='Sign_in_database.sqlite'
 
 userdict={
     "user":{
@@ -98,7 +99,16 @@ def getinfo():
           userdictionary["password"] = password
           
       return redirect("/signup-login")
-      
+
+def save_sign_in_details(name, email, password):
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    cursor.execute('''
+        INSERT INTO Login_Details (Name, Email, Password)
+        VALUES (?, ?, ?)
+    ''', (name, email, password))
+    db.commit()
+    db.close() 
       
      
     
