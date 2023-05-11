@@ -10,7 +10,7 @@ def create_table():
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
             Name VARCHAR(255) NOT NULL,
             Email VARCHAR(255) NOT NULL,
-            Password VARCHAR(255) NOT NULL
+            Password VARCHAR(255) NOT NULLcreated
         )
     ''')
     db.commit()
