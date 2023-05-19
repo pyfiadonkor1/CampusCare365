@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, redirect, session
-from flask_sqlalchemy import SQLAlchemy
-import datetime
-import os
+from flask import Flask, session, render_template, request, redirect
+
+app = Flask(__name__, template_folder="templates", static_folder="templates/static")
 
 
 app = Flask(__name__, template_folder="templates", 
@@ -51,16 +50,10 @@ def schedule():
  
 
    
-                      
-        
-            
    
-   
-   
+      
      
     
-
-
 
 
 if __name__ == "__main__":

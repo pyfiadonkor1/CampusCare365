@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planner App</title>
-<link rel="stylesheet" href="static\css\planner.css">
+  <title>Planner</title>
+  <link rel="stylesheet" type="text/css" href="static/css/planner.css">
 </head>
 <body>
-    <header>
-        <h1>Planner</h1>
-        <span class="calendar">&#128197;</span>
-    </header>
-    <section class="progress">
-        <div class="progress-container">
-            <p><h2>Excellent! Your plan for today is underway...</h2></p>
-            <div class="circle">
-                <div class="loading-circle"></div>
-            </div>
-        </div>
-    </section>
-    <h2>Today's Schedule</h2>
-    <section class="schedule">
-        <div class="left">
-            <div class="small">
-                <p>Meeting Preparation</p>
-                <p>Time : 2:45pm-3:00pm</p>
-            </div>
-            <div class="large">
-                <p>Attend an Online Class</p>
-                <p>Time : 3:00pm-4:00pm</p>
-                <p>Zoom - Kibo school</p>
-            </div>
-        </div>
-        <div class="right">
-            <div class="xlarge">
-                <p>order from meal-mate</p>
-                <p>Time : 6:45am-7:00am</p>
-            </div>
-            <div class="tiny">
-                <p>View more</p>
-                <p class="faint">+3 Schedules</p>
-            </div>
-        </div>
-    </section>
-    <button class="add"><a href="/schedule">+</a></button>
+  <div id="planner-page" class="background-image"></div>
+  <header>
+    <div class="logo-container">
+      <img src="static/pictures/plan-removebg-preview (1).png" alt="FitZone Logo" class="logo">
+    <h1>Planner</h1>
+  </header>
+
+  <div class="container">
+    <div class="loader">
+      <div class="loading-bar"></div>
+    </div>
+
+    <div class="todo-list">
+      <!-- The to-do list items will be dynamically added here -->
+    </div>
+
+    <div class="calendar">
+      <!-- The calendar will be displayed here -->
+    </div>
+
+    <div class="add-todo">
+      <h2>Add Item to To-Do List</h2>
+      <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <input type="submit" value="Add Schedule">
+      </form>
+    </div>
+  </div>
+
+  <script src="static/script/planner.js"></script>
 </body>
 </html>
