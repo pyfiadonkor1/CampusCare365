@@ -1,44 +1,28 @@
-from flask import Flask, session, render_template, request, redirect
-
-app = Flask(__name__, template_folder="templates", static_folder="templates/static")
-
-
-userdict={
-    "user":{
-    "username":"demo",
-     "password":"demo",
-     "email":"demo@gmail.com"
-    }
-}
+from flask import Flask, render_template, request, redirect, session
+from flask_sqlalchemy import SQLAlchemy
+import datetime
+import os
 
 
-planner={
-    "plan":{
-        "time":"",
-        "date":"" ,
-        "todo":""   
-        },
-    "plan1":{
-         "time":"",
-        "date":"" ,
-        "todo":""   
-        },
-    "plan3":{
-         "time":"",
-        "date":"" ,
-        "todo":""   
-        },
-    "plan4":{
-         "time":"",
-        "date":"" ,
-        "todo":""   
-        },
-    "plan5":{
-         "time":"",
-        "date":"" ,
-        "todo":""   
-        }
-}
+app = Flask(__name__, template_folder="templates", 
+            static_folder="templates/static")
+
+app.secret_key = os.urandom(24)
+basedir = os.path.abspath(os.path.dirname("app.py"))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'campuscare365.db')
+db = SQLAlchemy()
+db.init_app(app)
+
+date = datetime.date.today()
+
+class users(db.Model):
+    user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    date_registered = db.Column(db.Date)
+    date_confirmed = db.Column(db.Date)
+
 
 @app.route("/")
 def index():
@@ -50,7 +34,7 @@ def home():
 
 @app.route("/signup-login")
 def user():
-      return render_template('log.html')
+     return render_template('log.html')
   
 @app.route("/planner")
 def planner():
@@ -65,43 +49,18 @@ def mealmate():
 def schedule():
     return render_template("schedule.html") 
  
-@app.route("/signup-login", methods=["POST"])
-def getinfo():
+
+   
+                      
+        
+            
    
    
-    if request.method == "POST":  
-         login_email = request.form["email"]
-         login_password = request.form["password"]
-         userdictionary = userdict["user"]
-         print("login")
-         if login_email == "demo@gmail.com":
-             if login_password == "demo":
-               
-               
-              return redirect("/home")
-                 
-         
-    elif request.method == "POST":
-                   
-      username = request.form["username"]
-      email = request.form["email"]
-      password = request.form["password"]
-      con_password = request.form["conf_password"]
-      
-      if password != con_password:
-          msg = "password do not match"
-          return render_template("/signup-login", msg=msg)
-      else:
-          userdictionary = userdict["user"]
-          userdictionary["username"] = username 
-          userdictionary["email"] = email
-          userdictionary["password"] = password
-          
-      return redirect("/signup-login")
-      
-      
+   
      
     
+
+
 
 
 if __name__ == "__main__":

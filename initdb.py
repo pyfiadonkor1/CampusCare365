@@ -1,15 +1,29 @@
 import sqlite3
 
-conn = sqlite3.connect('myapp.db')
-c = conn.cursor()
+class DB:
 
-c.execute('''CREATE TABLE "users" (
-  "user_id" INT AUTO_INCREMENT,
-  "first_name" VARCHAR(50) NOT NULL,
-  "last_name" VARCHAR(50) NOT NULL,
+ def __init__(self):
+     self.conn = sqlite3.connect('campuscare365.db')
+     self.c = self.conn.cursor()
+
+ def user(self):
+   conn = self.conn
+   c = self.c
+   
+   c.execute('''CREATE TABLE IF NOT EXISTS "users" (
+  "user_id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "username" VARCHAR(50) NOT NULL,
   "password" VARCHAR(100) NOT NULL,
-  PRIMARY KEY (user_id)
-)''')
+  "email" VARCHAR(100) NOT NULL,       
+  "date_registered" DATE,
+  "date_confirmed" DATE
+  
+   )''')
 
-conn.commit()
-conn.close()
+   conn.commit()
+   conn.close()
+   
+   
+if __name__ == "__main__":
+  user = DB()
+  create=user.user()   

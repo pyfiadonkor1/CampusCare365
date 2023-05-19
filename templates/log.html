@@ -33,7 +33,7 @@
 			</div> -->	
 		<!-- Form section that contains the
 			login and the signup form -->
-		<div class="form-section" >
+		<div action="/signup-login" class="form-section" >
 
 			<!-- login form -->
 			
@@ -42,11 +42,11 @@
 				<input type="email"
 					class="email ele"
 					placeholder="youremail@email.com"
-					name="email" required>
+					name="logemail" required>
 				<input type="password"
 					class="password ele"
 					placeholder="password"
-					name="password" required>
+					name="logpassword" required>
 				<button class="clkbtn">Login</button>
 			  
 			
@@ -54,11 +54,11 @@
 
 			<!-- signup form -->
 			
-			<form action="/signup-login" class="signup-box" method=("POST", "GET")>
+			<form action="/signup-login" class="signup-box" method="POST">
 			 	
 				<input type="text"
 					class="name ele"
-					placeholder="Enter your name"
+					placeholder="Enter your fullname"
 					name="username"
 					required>
 				<input type="email"
