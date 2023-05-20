@@ -1,5 +1,7 @@
 from flask import Flask, session, render_template, request, redirect
-
+from flask_sqlalchemy import SQLAlchemy
+import datetime
+import os
 app = Flask(__name__, template_folder="templates", static_folder="templates/static")
 
 
@@ -47,6 +49,10 @@ def mealmate():
 @app.route("/schedule")
 def schedule():
     return render_template("schedule.html") 
+
+@app.route("/fitzone")
+def fitzone():
+    return render_template("fitzone.html")
  
 
    
