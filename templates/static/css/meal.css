@@ -145,3 +145,39 @@ outline: none;
   .slideshow-content.active {
     display: block;
   }
+  .foodie {
+    border-width: 2px;
+    background: blue;
+    border-radius: 20%;
+    height:70vh;
+    width: 60vh;
+    margin: 17px;
+    padding:20px;
+    position: relative;
+    justify-content: space-between;
+  }
+  img {
+    height: 40vh;
+    width: 60vh;
+    border-radius: 100%;
+
+  }
+  h2 {
+    color:white;
+    position: absolute;
+    bottom: 80px;
+    left: 100px;
+  }
+   .float{
+  float:right;
+  } 
+  .pic{
+    position: absolute;
+    top: -30px;
+  }
+  h3{
+    color:white;
+    position: absolute;
+    bottom: 25px;
+    left: 160px;
+  }
