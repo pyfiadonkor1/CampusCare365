@@ -1,125 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CampusCare365-Meal</title>
-	<link rel="stylesheet" type="text/css" href="static/css/meal.css">
+    <title>Grid Food Menu</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="static/css/meal.css">
 </head>
-<body>
 
 
 <header>
-<div class="dropdown">
-    <button class="dropdown-btn">&#8801;</button>
-    <div class="dropdown-menu">
-    <a href="/recipes">Recipes</a>
-    <hr>
-    <a href="#">Meal Plan</a>
-    <hr>
-    <a href="#">Generate Meal Plan</a>
-    <hr>
-    <a href="#">Order a Meal</a>
-    </div>
-</div>
-<div class="logo">
-    <img src="static/pictures/meal mate.png" alt="Meal Mate Logo">
-    <div class="logo-text">
-    <div class="logo-name">Meal Mate</div>
-    <div class="logo-slogan">Healthy Meals for You</div>
-    </div>
-</div>
-<div class="center">
-    <div class="search">
-    <input type="text" placeholder="Search...">
-    </div>
-</div>
-</header>
-<div class="slideshow">
-    <div class="slideshow-title active" data-tab="food">Food</div>
-    <div class="slideshow-title" data-tab="drinks">Drinks</div>
-    <div class="slideshow-title" data-tab="snacks">Snacks</div>
-    <div class="slideshow-title" data-tab="sauce">Sauce</div>
-    <div class="slideshow-content active" data-tab="food">
-        <!-- Insert food content here -->
-       
-        <div class="foodie float ">
-            <img src="static\pictures\noodles.jpg" alt="rice" class="pic">
-            <h2> sphagetti</h2>
-            <h3>1,900</h3>
+    <div class="dropdown">
+        <button class="dropdown-btn">&#8801;</button>
+        <div class="dropdown-menu">
+        <a href="/recipes">Recipes</a>
+        <hr>
+        <a href="#">Meal Plan</a>
+        <hr>
+        <a href="#">Generate Meal Plan</a>
+        <hr>
+        <a href="#">Order a Meal</a>
         </div>
-        <div class="foodie float ">
-            <img src="static\pictures\rice.jpg" alt="stew" class="pic">
-            <h2> Jollof Rice</h2>
-            <h3>2,300</h3>
+    </div>
+    <div class="logo">
+        <img src="static/pictures/meal mate.png" alt="Meal Mate Logo">
+        <div class="logo-text">
+        <div class="logo-name">Meal Mate</div>
+        <div class="logo-slogan">Healthy Meals for You</div>
+        </div>
+    </div>
+    </header>
+
+<body>
+
+    <div class="menu">
+        <div class="heading">
+            <h1>BITE-SIZE DELIGHTS</h1>
+            <h3>&mdash; SPECIAL RECIPES MADE FOR YOU &mdash; </h3>
 
         </div>
-        <div class="foodie float ">
-            <img src="static\pictures\amala.jpeg" alt="amala" class="pic">
-            <h2>Amala <br>with Ewedu Soup</h2>
-            <h3>2,500</h3>
+
+        
+
+        <div class="food-items">
+            <img src="static/pictures/fried-rice-plate-white-wooden-floor_1150-28473.avif">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Smoky Hamburger</h5>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit reiciendis nam non quia! Earum eveniet minus. Facilis explicabo natus nihil voluptatem eveniet pariatur.</p>
+                <button>View</button>
+            </div>
         </div>
-        <div class="foodie float ">
-            <img src="static\pictures\top-view-vegetable-soup-with-meat-inside-plate-grey_140725-36040.avif" alt="stew" width="100px" height="100px" class="pic">
-            <h2>Vegetable<br> soup with meat</h2>
-            <h3>1,500</h3>
+
+        <div class="food-items">
+            <img src="static/pictures/top-view-vegetable-soup-with-meat-inside-plate-grey_140725-36040.avif">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Honey Garlic Chicken</h5>
+                    <h5 class="price"> 30 mins </h5>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur adipisicing elit.</p>
+                <button>View</button>
+            </div>
         </div>
-        <div class="foodie float ">
-            <img src="static\pictures\fried-rice-plate-white-wooden-floor_1150-28473.avif" alt="stew" width="100px" height="100px" class="pic">
-            <h2>Fried Rice and <br>veggie mix</h2>
-            <h3>2,500</h3>
+
+        <div class="food-items">
+            <img src="static/pictures/potatoes.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Manchow Soup</h5>
+                    <h5 class="price"> 30 mins </h5>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus quibusdam facilis, magni consectetur necessitatibus.</p>
+                <button>View</button>
+            </div>
         </div>
-        <div class="foodie float ">
-            <img src="static\pictures\potatoes.jpeg" alt="amala" class="pic">
-            <h2>Honey Roasted <br>Potato</h2>
-            <h3>1,900</h3>
+
+        <div class="food-items">
+            <img src="Spaghetti.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Basil Pesto Spaghetti</h5>
+                    <h5 class="price"> 30 mins </h5>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+                <button>View</button>
+            </div>
+        </div>
+
+        <div class="food-items">
+            <img src="salmon.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Roast Salmon</h5>
+                    <h5 class="price"> 30 mins </h5>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+                <button>View</button>
+            </div>
+        </div>
+
+        <div class="food-items">
+            <img src="Sandwich.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>BBQ Sandwich</h5>
+                    <h5 class="price"> 30 mins </h5>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus reiciendis nam non quia! Earum eveniet quia minus nemo.</p>
+                <button>View</button>
+            </div>
         </div>
     </div>
-    <div class="slideshow-content" data-tab="drinks">
-        <!-- Insert drinks content here -->
-       
-        <div class="foodie float">
-            <img src="static\pictures\malta.jpeg" alt="drinks">
-            <h2>Malta</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\soya milk.webp" alt="drink">
-            <h2>Soya Milk</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\coke.jpeg" alt="drink">
-            <h2>Coke</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\Chivita.jpeg" alt="drink">
-            <h2>Fruit Juice</h2>
-        </div>
-    </div>
-    <div class="slideshow-content" data-tab="snacks">
-        <!-- Insert snacks content here -->
-        <img src="snacks.jpg" alt="Snacks">
-        <div class="foodie float">
-            <img src="static\pictures\snicker.jpeg" alt="drink">
-            <h2>Snicker</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\meatpie.jpeg" alt="drink" class="pic">
-            <h2>Meat-pie</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\pizza.jpeg" alt="drink" class="pic">
-            <h2>Pizza</h2>
-        </div>
-        <div class="foodie float">
-            <img src="static\pictures\puff.jpeg" alt="drink" class="pic">
-            <h2>Puff-Puff</h2>
-        </div>
-        <h2>Some text about snacks.</h2>
-    </div>
-    <div class="slideshow-content" data-tab="sauce">
-        <!-- Insert sauce content here -->
-        <img src="sauce.jpg" alt="Sauce">
-        <p>Some text about sauce.</p>
-    </div>
-</div>
-<script src="static/script/meal.js"></script>
+    <script src="static/script/meal.js"></script>
 </body>
 </html>
