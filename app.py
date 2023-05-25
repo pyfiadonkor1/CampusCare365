@@ -78,7 +78,9 @@ def get_info():
         
         return render_template("home.html")  
     
-
+@app.route('/mealplan_generator', methods=["GET", "POST"])
+def generate_meal_plan():
+    return render_template("mealplan_generator.html")
 
    
    
