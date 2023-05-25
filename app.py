@@ -18,6 +18,8 @@ db.init_app(app)
 date = datetime.date.today()
 
 
+
+
     
     
 
@@ -86,6 +88,11 @@ def get_info():
         password=request.form['logpassword']
         
         return render_template("home.html")  
+    
+@app.route('/mealplan_generator', methods=["GET", "POST"])
+def generate_meal_plan():
+    return render_template("mealplan_generator.html")
+
    
    
       
