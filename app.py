@@ -59,16 +59,27 @@ def get_info():
         password=request.form['password']
         conf_password=request.form['conf_password']
         
-        new_user = User(username=username,
-                        email=email,
-                        password=password,
-                        date_registered=date)
+        authenticate = authenticated(username, email)
+        password_valid = pass_validation(password,conf_password)
         
-        db.session.add(new_user)
-        db.session.commit()
-          
+        if password_valid == False:
+            flash("password must match", "error")
+            return redirect("/signup-login")
         
-        return render_template("index.html")
+        elif authenticate == True:
+            flash("Username or Email has been taken", "error")  
+            return redirect("/signup-login")
+        else:
+            new_user = User(username=username,
+                            email=email,
+                            password=password,
+                            date_registered=date)
+        
+            db.session.add(new_user)
+            db.session.commit()
+             
+        
+            return render_template("index.html")
     
     elif 'login' in request.form:
         email=request.form['logemail']
@@ -78,7 +89,22 @@ def get_info():
    
    
       
-#def authenticated(username,email):
+def authenticated(username,email):
+    name = User.query.filter_by(username=username).first()
+    mail = User.query.filter_by(email=email).first()
+    if name == username:
+        return True
+    elif mail == email:
+        return True
+    else:
+        return False
+    
+    
+def pass_validation(password,conf_password):
+    if password == conf_password:
+        return True
+    else:
+        return False    
     
          
     
