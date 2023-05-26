@@ -30,6 +30,8 @@ def index():
 
 @app.route("/home")
 def home():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template('home.html')
 
 @app.route("/signup-login")
@@ -38,19 +40,27 @@ def user():
   
 @app.route("/planner")
 def planner():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template('planner.html')
  
  
 @app.route("/meal-mate")
 def mealmate():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template("meal.html")
 
 @app.route("/schedule")
 def schedule():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template("schedule.html") 
 
 @app.route("/fitzone")
 def fitzone():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template("fitzone.html")
  
 @app.route("/signup-login", methods=["GET","POST"])
@@ -71,50 +81,80 @@ def get_info():
         elif authenticate == True:
             flash("Username or Email has been taken", "error")  
             return redirect("/signup-login")
-        else:
-            new_user = User(username=username,
+        
+        
+        new_user = User(username=username,
                             email=email,
                             password=password,
                             date_registered=date)
         
-            db.session.add(new_user)
-            db.session.commit()
+        db.session.add(new_user)
+        db.session.commit()
              
         
-            return render_template("index.html")
+        return render_template("index.html")
     
     elif 'login' in request.form:
         email=request.form['logemail']
         password=request.form['logpassword']
         
-        return render_template("home.html")  
+        if login_valid(email, password):
+            flash("Login successful", "success")
+            return redirect('/home')
+        else:
+            flash("Invalid email or password", "error")
+            return redirect('/login')
+        
+        
     
 @app.route('/mealplan_generator', methods=["GET", "POST"])
 def generate_meal_plan():
+    if 'email' not in session:
+        return redirect('/signup-login')
     return render_template("mealplan_generator.html")
 
    
    
       
-def authenticated(username,email):
-    name = User.query.filter_by(username=username).first()
-    mail = User.query.filter_by(email=email).first()
-    if name == username:
+def authenticated(username, email):
+    user_by_username = User.query.filter_by(username=username).first()
+    user_by_email = User.query.filter_by(email=email).first()
+    
+    if user_by_username and user_by_username.username == username:
         return True
-    elif mail == email:
+    if user_by_email and user_by_email.email == email:
         return True
-    else:
-        return False
+    
+    return False
+
     
     
 def pass_validation(password,conf_password):
-    if password == conf_password:
+    if str(password) == str(conf_password):
         return True
-    else:
-        return False    
+    return False    
     
+def login_valid(email, password, remember_me=True):
+    
+    user = User.query.filter_by(email=email).first()
+    passc = User.query.filter_by(password=password).first()
+    
+    if user:
+        if passc:
+            session['user_id'] = user.user_id
+            session['email'] = user.email
+            session['username'] = user.username
+
+            
+            session.permanent = True
+            
+
+            return True
+
+    
+    return False    
          
-    
+        
 
 
 if __name__ == "__main__":
