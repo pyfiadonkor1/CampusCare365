@@ -2,6 +2,7 @@ from flask import Flask, session, render_template, request, redirect, flash
 from model import db, User
 import datetime
 import os
+import requests
 app = Flask(__name__, template_folder="templates", static_folder="templates/static")
 
 
@@ -113,9 +114,6 @@ def generate_meal_plan():
         return redirect('/signup-login')
     return render_template("mealplan_generator.html")
 
-   
-   
-      
 def authenticated(username, email):
     user_by_username = User.query.filter_by(username=username).first()
     user_by_email = User.query.filter_by(email=email).first()
@@ -127,7 +125,9 @@ def authenticated(username, email):
     
     return False
 
-    
+    url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
+    url = f'https://api.spoonacular.com/mealplanner/generate?timeFrame=day?diet={diet}'
+    request.get(url)
     
 def pass_validation(password,conf_password):
     if str(password) == str(conf_password):

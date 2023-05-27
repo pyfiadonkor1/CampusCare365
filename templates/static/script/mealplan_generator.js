@@ -1,32 +1,38 @@
 
-const dietPlanForm = document.getElementById('dietPlanForm');
-const resultDiv = document.getElementById('result');
 
-dietPlanForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+const apiKey = 'bb96fafd19b64b4c86b0f79c917cd7fe';
 
-    const height = document.getElementById('height').value;
-    const weight = document.getElementById('weight').value;
-    const allergies = document.getElementById('allergies').value;
-    const unliked_foods = document.getElementById('unliked_foods').value;
-
-    const apiUrl = "https://customized-meal-plan-generator.p.rapidapi.com/diet_plan";
-    const apiKey = "395bbed80emshbb95db48e059abcp179b15jsn9adb18754dba";
-
-    const headers = new Headers({
-        "X-RapidAPI-Key": apiKey,
-        "X-RapidAPI-Host": "customized-meal-plan-generator.p.rapidapi.com"
+$(document).ready(function () {
+   
+    const diets = [
+        'Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian',
+        'Vegan', 'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 'Whole30'
+    ];
+    diets.forEach(diet => {
+        $('#diet').append(`<option value="${diet}">${diet}</option>`);
     });
 
-    const queryParams = new URLSearchParams({
-        height,
-        weight,
-        allergies,
-        unliked_foods
+    //Submission Handler
+    $('#meal-planner-form').on('submit', function (e) {
+        e.preventDefault();
+
+        const timeFrame = $('#timeFrame').val();
+        const targetCalories = $('#targetCalories').val();
+        const diet = $('#diet').val();
+        const exclude = $('#exclude').val();
+
+        // Query the Spoonacular API
+        $.ajax({
+            url: `https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&timeFrame=${timeFrame}&targetCalories=${targetCalories}&diet=${diet}&exclude=${exclude}`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Display the meal plan result
+                $('#meal-plan-result').html(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
     });
-
-    const response = await fetch(`${apiUrl}?${queryParams}`, { headers });
-    const data = await response.json();
-
-    resultDiv.innerHTML = JSON.stringify(data, null, 2);
 });
