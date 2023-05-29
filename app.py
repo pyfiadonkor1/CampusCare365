@@ -1,25 +1,25 @@
 from flask import Flask, session, render_template, request, redirect, flash
 from model import db, User
+from mealDB import meal
+from initdb import DB
 import datetime
 import os
 import requests
-app = Flask(__name__, template_folder="templates", static_folder="templates/static")
+
+
 
 
 app = Flask(__name__, template_folder="templates", 
             static_folder="templates/static")
-
 app.secret_key = os.urandom(24)
 basedir = os.path.abspath(os.path.dirname("app.py"))
 app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'campuscare365.db')
-
 db.init_app(app)
 
+
 date = datetime.date.today()
-
-
-
+mealtable = meal()
 
     
     
@@ -98,6 +98,7 @@ def get_info():
     elif 'login' in request.form:
         email=request.form['logemail']
         password=request.form['logpassword']
+        
         
         if login_valid(email, password):
             flash("Login successful", "success")

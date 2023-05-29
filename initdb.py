@@ -65,4 +65,8 @@ class DB:
    
 if __name__ == "__main__":
   user = DB()
-  create=user.user()   
+  usertable = user.user()
+  foodtable = user.food()
+  snacktable = user.snacks()
+  drinkstable = user.drinks()
+     
