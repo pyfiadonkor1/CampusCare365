@@ -115,6 +115,12 @@ def generate_meal_plan():
         return redirect('/signup-login')
     return render_template("mealplan_generator.html")
 
+@app.route('/recipe_search', methods=["GET", "POST"])
+def recipe_searching():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("recipe_search.html")
+
 def authenticated(username, email):
     user_by_username = User.query.filter_by(username=username).first()
     user_by_email = User.query.filter_by(email=email).first()

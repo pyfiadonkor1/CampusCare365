@@ -33,6 +33,7 @@ $(document).ready(function () {
             error: function (error) {
                 console.error('Error:', error);
             }
+        
         });
     });
 });
