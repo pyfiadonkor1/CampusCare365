@@ -5,7 +5,7 @@ from initdb import DB
 import datetime
 import os
 import requests
-
+from flask import jsonify
 
 
 
@@ -107,9 +107,8 @@ def get_info():
             flash("Invalid email or password", "error")
             return redirect('/login')
         
-        
     
-@app.route('/mealplan_generator', methods=["GET", "POST"])
+"""@app.route('/mealplan_generator', methods=["GET","POST"])
 def generate_meal_plan():
     if request.method == 'POST':
         timeFrame = request.form.get("timeFrame")
@@ -117,16 +116,21 @@ def generate_meal_plan():
         diet = request.form.get("diet")
         exclude = request.form.get("exclude")
         apiKey = 'bb96fafd19b64b4c86b0f79c917cd7fe'
-        URL = f'https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&timeFrame=${timeFrame}&targetCalories=${targetCalories}&diet=${diet}&exclude=${exclude}'
+        URL = f'https://api.spoonacular.com/mealplanner/generate?apiKey={apiKey}&timeFrame={timeFrame}&targetCalories={targetCalories}&diet={diet}&exclude={exclude}'
 
         response = requests.get(URL)
-        print(response.json())
-
-
+        if response.status_code == 200:
+            meal_plan_data = response.json()
+            return render_template("mealGen_results.html", meal_plan_data=meal_plan_data)
+        else:
+            flash("Error: " + str(response.status_code), "error")
+            return redirect("/meal")
 
     if 'email' not in session:
         return redirect('/signup-login')
-    return render_template("mealplan_generator.html")
+    return render_template("mealplan_generator.html")"""
+
+
 
 @app.route('/recipe_search', methods=["GET", "POST"])
 def recipe_searching():
