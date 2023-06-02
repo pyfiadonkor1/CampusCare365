@@ -111,6 +111,19 @@ def get_info():
     
 @app.route('/mealplan_generator', methods=["GET", "POST"])
 def generate_meal_plan():
+    if request.method == 'POST':
+        timeFrame = request.form.get("timeFrame")
+        targetCalories = request.form.get("targetCalories")
+        diet = request.form.get("diet")
+        exclude = request.form.get("exclude")
+        apiKey = 'bb96fafd19b64b4c86b0f79c917cd7fe'
+        URL = f'https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&timeFrame=${timeFrame}&targetCalories=${targetCalories}&diet=${diet}&exclude=${exclude}'
+
+        response = requests.get(URL)
+        print(response.json())
+
+
+
     if 'email' not in session:
         return redirect('/signup-login')
     return render_template("mealplan_generator.html")

@@ -10,33 +10,32 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Spoonacular Meal Planner</h1>
-        <form id="meal-planner-form">
+        <form id="meal-planner-form" action="/mealplan_generator">
             <div class="mb-3">
                 <label for="timeFrame" class="form-label">Time Frame</label>
-                <select class="form-select" id="timeFrame" required>
+                <select class="form-select" id="timeFrame" name="timeFrame" required>
                     <option value="day">Day</option>
                     <option value="week">Week</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="targetCalories" class="form-label">Target Calories</label>
-                <input type="number" class="form-control" id="targetCalories" required>
+                <input type="number" class="form-control" id="targetCalories" name="targetCalories" required>
             </div>
             <div class="mb-3">
                 <label for="diet" class="form-label">Diet</label>
-                <select class="form-select" id="diet" required>
+                <select class="form-select" id="diet" name="diet" required>
                     <option value="">None</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="exclude" class="form-label">Exclude</label>
-                <input type="text" class="form-control" id="exclude" placeholder="e.g., shellfish, olives">
+                <input type="text" class="form-control" id="exclude" placeholder="e.g., shellfish, olives" name="exclude">
             </div>
             <button type="submit" class="btn btn-primary">Generate Meal Plan</button>
         </form>
         <div id="meal-plan-result" class="mt-5"></div>
     </div>
-<script src="static/script/mealplan_generator.js"></script>
+<!--<script src="static/script/mealplan_generator.js"></script>-->
 </body>
 </html>
