@@ -30,20 +30,24 @@ def create_app():
 
     return app
 
-app = create_app()
 
-date = datetime.date.today()
-
-engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
-inspector = sa.inspect(engine)
-if not inspector.has_table("users"):
+def check_db():
+    engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+    inspector = sa.inspect(engine)
+    if not inspector.has_table("users"):
         with app.app_context():
             user = User()
             db.drop_all()
             db.create_all()
             app.logger.info('Initialized the database!')
-else:
+    else:
         app.logger.info('Database already contains the users table.')
+
+app = create_app()
+date = datetime.date.today()
+check_dbase = check_db() 
+
+
 
     
 
@@ -128,7 +132,7 @@ def get_info():
             return redirect('/home')
         else:
             flash("Invalid email or password", "error")
-            return redirect('/login')
+            return redirect('/signup-login')
         
     
 """@app.route('/mealplan_generator', methods=["GET","POST"])
