@@ -7,20 +7,28 @@ from flask import jsonify
 
 
 
-app = Flask(__name__, template_folder="templates", 
+
+
+
+def create_app():
+    app = Flask(__name__, template_folder="templates", 
             static_folder="templates/static")
-app.secret_key = os.urandom(24)
-basedir = os.path.abspath(os.path.dirname("app.py"))
-app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
-if os.getenv('DATABASE_URL'):
+    app.secret_key = os.urandom(24)
+    basedir = os.path.abspath(os.path.dirname("app.py"))
+    app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
+    if os.getenv('DATABASE_URL'):
      SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
-else:     
+    else:     
  
      SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
-db.init_app(app)
+    # Initialize Flask-SQLAlchemy with the Flask application
+    db.init_app(app)
 
+    return app
+
+app = create_app()
 
 date = datetime.date.today()
 user = User()
@@ -154,9 +162,9 @@ def authenticated(username, email):
     
     return False
 
-    url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
-    url = f'https://api.spoonacular.com/mealplanner/generate?timeFrame=day?diet={diet}'
-    request.get(url)
+    #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
+    #url = f'https://api.spoonacular.com/mealplanner/generate?timeFrame=day?diet={diet}'
+    #request.get(url)
     
 def pass_validation(password,conf_password):
     if str(password) == str(conf_password):
