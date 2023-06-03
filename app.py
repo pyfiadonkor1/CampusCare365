@@ -2,8 +2,7 @@ from flask import Flask, session, render_template, request, redirect, flash
 from model import db, User
 import datetime
 import os
-import requests
-from flask import jsonify
+import sqlalchemy as sa
 
 
 
@@ -17,11 +16,14 @@ def create_app():
     basedir = os.path.abspath(os.path.dirname("app.py"))
     app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
     if os.getenv('DATABASE_URL'):
-     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+        SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
     else:     
- 
-     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
+    
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    
+    
+
 
     # Initialize Flask-SQLAlchemy with the Flask application
     db.init_app(app)
@@ -31,10 +33,18 @@ def create_app():
 app = create_app()
 
 date = datetime.date.today()
-user = User()
-with app.app_context():
-    db.create_all()
-    
+
+engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+inspector = sa.inspect(engine)
+if not inspector.has_table("users"):
+        with app.app_context():
+            user = User()
+            db.drop_all()
+            db.create_all()
+            app.logger.info('Initialized the database!')
+else:
+        app.logger.info('Database already contains the users table.')
+
     
 
 
