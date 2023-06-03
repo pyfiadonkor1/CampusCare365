@@ -14,3 +14,6 @@ class User(db.Model):
     email = db.Column(db.String(100), nullable=False)
     date_registered = db.Column(db.Date)
     date_confirmed = db.Column(db.Date)
+    
+#class Food    
+

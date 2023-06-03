@@ -1,7 +1,5 @@
 from flask import Flask, session, render_template, request, redirect, flash
 from model import db, User
-from mealDB import meal
-from initdb import DB
 import datetime
 import os
 import requests
@@ -14,13 +12,20 @@ app = Flask(__name__, template_folder="templates",
 app.secret_key = os.urandom(24)
 basedir = os.path.abspath(os.path.dirname("app.py"))
 app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'campuscare365.db')
+if os.getenv('DATABASE_URL'):
+     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+else:     
+ 
+     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+
 db.init_app(app)
 
 
 date = datetime.date.today()
-mealtable = meal()
-
+user = User()
+with app.app_context():
+    db.create_all()
     
     
 
@@ -168,7 +173,7 @@ def login_valid(email, password, remember_me=True):
             session['user_id'] = user.user_id
             session['email'] = user.email
             session['username'] = user.username
-
+            print(session['username'])
             
             session.permanent = True
             
