@@ -17,7 +17,7 @@ def create_app():
     basedir = os.path.abspath(os.path.dirname("app.py"))
     app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
     if os.getenv('DATABASE_URL'):
-        SQLALCHEMY_DATABASE_URI = "postgres://campuscare365:eApbGksp8O5OnG3HS7YgwCaNad2dcJGP@dpg-chgopiak728sd6jvvm2g-a/campuscaredb"
+        SQLALCHEMY_DATABASE_URI = "postgresql://campuscare365:eApbGksp8O5OnG3HS7YgwCaNad2dcJGP@dpg-chgopiak728sd6jvvm2g-a/campuscaredb"
     else:     
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
     
