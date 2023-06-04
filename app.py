@@ -41,7 +41,7 @@ date = datetime.date.today()
  
 engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 inspector = sa.inspect(engine)
-if not inspector.has_table("users"):
+if not inspector.has_table("user"):
         with app.app_context():
             db.drop_all()
             db.create_all()
@@ -113,9 +113,9 @@ def get_info():
         
         
         new_user = User(username=username,
-                            email=email,
-                            password=password,
-                            date_registered=date)
+                        email=email,
+                        password=password,
+                        date_registered=date)
         
         db.session.add(new_user)
         db.session.commit()
