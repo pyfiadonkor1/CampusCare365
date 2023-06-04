@@ -3,6 +3,7 @@ from model import db, User
 import datetime
 import os
 import sqlalchemy as sa
+import psycopg2
 
 
 
@@ -16,7 +17,7 @@ def create_app():
     basedir = os.path.abspath(os.path.dirname("app.py"))
     app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
     if os.getenv('DATABASE_URL'):
-        SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+        SQLALCHEMY_DATABASE_URI = "postgres://campuscare365:eApbGksp8O5OnG3HS7YgwCaNad2dcJGP@dpg-chgopiak728sd6jvvm2g-a/campuscaredb"
     else:     
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'campuscaredb.db')
     
@@ -36,7 +37,6 @@ def check_db():
     inspector = sa.inspect(engine)
     if not inspector.has_table("users"):
         with app.app_context():
-            user = User()
             db.drop_all()
             db.create_all()
             app.logger.info('Initialized the database!')
