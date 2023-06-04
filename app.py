@@ -23,16 +23,6 @@ def create_app():
     
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
     
-    
-
-
-    
-    db.init_app(app)
-
-    return app
-
-
-def check_db():
     engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
     inspector = sa.inspect(engine)
     if not inspector.has_table("users"):
@@ -43,7 +33,16 @@ def check_db():
     else:
         app.logger.info('Database already contains the users table.')
         
-check_dbase = check_db()
+
+
+    
+    db.init_app(app)
+
+    return app
+
+
+
+   
 app = create_app()
 date = datetime.date.today()
  
