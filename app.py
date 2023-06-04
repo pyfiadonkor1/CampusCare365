@@ -42,10 +42,11 @@ def check_db():
             app.logger.info('Initialized the database!')
     else:
         app.logger.info('Database already contains the users table.')
-
+        
+check_dbase = check_db()
 app = create_app()
 date = datetime.date.today()
-check_dbase = check_db() 
+ 
 
 
 
