@@ -2,22 +2,53 @@
 <html>
 <head>
 	<title>CampusCare365-Home</title>
-	<link rel="stylesheet" type="text/css" href="static\css\home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var successModal = new bootstrap.Modal(document.getElementById('success-modal'));
+
+            // Show the success modal
+            successModal.show();
+
+            // Hide the success modal after 5 seconds
+            setTimeout(function() {
+                successModal.hide();
+            }, 5000);
+        });
+    </script>
+	<link rel="stylesheet" type="text/css" href="static\css\home.css"> 
 </head>
 <body>
+	 <!-- Success Modal -->
+	 <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="success-modal-label">Success!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Your login was successful.
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="header">
 		<div class="logo">
 			<img src="static\pictures\Logo.jpg" alt="Your logo">
 		</div>
 		<div class="welcome">
-			<h1><p>Welcome Demo</p></h1>
+			<h1><p>Welcome {{firstname}}</p></h1>
 		</div>
 	</div>
 	<div class="search">
 		<input type="text" placeholder="Search...">
 		<button><i class="fa-solid fa-search"></i></button>
 	</div>
+	
 	<div class="icons">
+		
 		<div class="icon-row">
 			<div class="icon">
 				<a href="/fitzone">

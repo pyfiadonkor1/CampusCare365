@@ -8,14 +8,14 @@ a{
 text-align:center;
 text-decoration: none;
 color: black
+border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 a:hover{
-	background-image: linear-gradient(
-        rgb(84, 231, 212),
-		rgb(21, 21, 180),
-        rgb(84, 231, 212)
-    );
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	transform: scale(1.1);
 }
 
 .header {
@@ -141,8 +141,10 @@ button i {
 }
 
 .buttons button:hover {
+	transform: scale(1.1);
 	background-image: linear-gradient(
-        rgb(21, 21, 180),
+        rgb(84, 231, 212),
+		rgb(21, 21, 180),
         rgb(84, 231, 212)
     );
 }
@@ -150,3 +152,4 @@ button i {
 .icons img:hover{
 
 }
+

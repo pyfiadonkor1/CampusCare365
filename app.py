@@ -16,6 +16,7 @@ def create_app():
     app.secret_key = os.urandom(24)
     basedir = os.path.abspath(os.path.dirname("app.py"))
     app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
+    
     if os.getenv('DATABASE_URL'):
         SQLALCHEMY_DATABASE_URI = "postgresql://campuscare365:eApbGksp8O5OnG3HS7YgwCaNad2dcJGP@dpg-chgopiak728sd6jvvm2g-a/campuscaredb"
     else:     
@@ -23,10 +24,6 @@ def create_app():
     
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
     
-    
-        
-
-
     
     db.init_app(app)
 
@@ -61,7 +58,8 @@ def index():
 def home():
     if 'email' not in session:
         return redirect('/signup-login')
-    return render_template('home.html')
+    user = session['username']
+    return render_template('home1.html', user=user)
 
 @app.route("/signup-login")
 def user():
@@ -129,8 +127,14 @@ def get_info():
         
         
         if login_valid(email, password):
-            flash("Login successful", "success")
-            return redirect('/home')
+            username = login_valid(email,password)
+            user = username.split()
+            if len(user) >= 2:
+                firstname = user[0].capitalize()
+            else:
+                firstname = username.capitalize()  
+            session['username'] = firstname     
+            return render_template("home.html", firstname = firstname)
         else:
             flash("Invalid email or password", "error")
             return redirect('/signup-login')
@@ -187,24 +191,18 @@ def pass_validation(password,conf_password):
     return False    
     
 def login_valid(email, password, remember_me=True):
-    
     user = User.query.filter_by(email=email).first()
-    passc = User.query.filter_by(password=password).first()
     
-    if user:
-        if passc:
-            session['user_id'] = user.user_id
-            session['email'] = user.email
-            session['username'] = user.username
-            print(session['username'])
-            
-            session.permanent = True
-            
+    if user and user.password == password:
+        session['user_id'] = user.user_id
+        session['email'] = user.email
+        session['username'] = user.username
 
-            return True
+        session.permanent = True
 
-    
-    return False    
+        return user.username  
+
+    return None
          
         
 
