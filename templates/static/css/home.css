@@ -8,31 +8,26 @@ a{
 text-align:center;
 text-decoration: none;
 color: black
-border-radius: 4px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-a:hover{
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	transform: scale(1.1);
-}
+/*:hover{
+	
+}*/
 
 .header {
 	background-color:#062092;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px;
+	padding: 40px;
 }
 
 .logo img {
 	border-radius: 50%;
 	width: 90px; 
 	height: auto;
-	
 	margin-left: 40px; 
-	margin-top: 10px; 
+	margin-top: -30px; 
 }
 
 .welcome p {
@@ -115,7 +110,7 @@ button i {
 	}
 }
 
-.recommended {
+/*.recommended {
 	background-color: #062092;
 	text-align: center;
 	padding: 50px;
@@ -126,7 +121,7 @@ button i {
 	color: white;
 	text-align: center;
 }
-
+*/
 .buttons button {
 	background-color: #66AAED;
 	color: white;
@@ -141,15 +136,104 @@ button i {
 }
 
 .buttons button:hover {
-	transform: scale(1.1);
 	background-image: linear-gradient(
-        rgb(84, 231, 212),
-		rgb(21, 21, 180),
+        rgb(21, 21, 180),
         rgb(84, 231, 212)
     );
 }
+/*.icons img:hover{*/
 
-.icons img:hover{
+footer{
+	margin: 0;
+	padding: -70px;
+	box-sizing: border-box;
+	background-color: #062092;
+}
+.footerContainer{
+	width: 100%;
+	padding: 70px 30px 20px;
+}
+.socialIcons{
+	display: flex;
+	justify-content: center;
+}
+
+.socialIcons a{
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50%;
+}
+
+.socialIcons a i{
+	font-size: 2em;
+	color: #062092;
+	opacity: 0.9;
+}
+
+.socialIcons a:hover{
+	background-color:  rgb(84, 231, 212);
+	transition: 0.5s;
+}
+
+.socialIcons a:hover{
+	color:  rgb(84, 231, 212);
+	transition: 0.5s;
+}
+
+.footerNav{
+	margin: 30px 0;
+}
+
+.footerNav ul{
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+
 
 }
 
+.footerNav ul li a{
+	color: white;
+	margin: 10px;
+	text-decoration: none;
+	font-size: 1.3em;
+	opacity: 0.7;
+	
+
+}
+
+.footerNav ul li a:hover{
+	opacity: 1;
+	color: rgb(84, 231, 212);
+
+}
+.footerBottom{
+	background-color: white;
+	padding: 10px;
+	text-align:center;
+	width: 100%;
+}
+.footerBottom p{
+	color:#062092;
+}
+.designer{
+	opacity: 0.7;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	margin: 0px 5px;
+}
+
+@media (max-width:700px){
+	.footerNav ul{
+		flex-direction: column;
+	}
+	.footerNav ul li{
+		width: 100%;
+		text-align: center;
+		margin: 10px;
+	
+	}
+}
