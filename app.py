@@ -3,7 +3,7 @@ from model import db, User
 import datetime
 import os
 import sqlalchemy as sa
-import psycopg2
+
 
 
 
@@ -26,7 +26,7 @@ def create_app():
     
 
 
-    # Initialize Flask-SQLAlchemy with the Flask application
+    
     db.init_app(app)
 
     return app
