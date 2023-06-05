@@ -3,125 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .small {
-            background-color: rgb(142, 142, 204);
-            width:5px;
-            height:2px;
-            align-items: center;
+body{
+    background-color: rgb(209, 212, 214);
         }
-        .container{
-            border-width: 2px;
-            background-color: rgb(6, 19, 63);
-            position: absolute;
-            top: 50vh;
-            height:130vh;
-            width: 100%;
-            border-radius: 20px;
-        }
-        .fit-content{
-            background-color: white;
-            border-radius: 10px;
-            justify-items: center;
-            justify-content: center;
+.container {
+height: 10vh;
+background-color: rgb(236, 234, 234);
+border-radius: 20px;
+text-align:unset;
+max-width: 80%;
+position: relative;
+margin:10px;
+padding:20;
+margin-left: 40px;
+}
 
-        }
-        #noodles{
-            height:30vh;
-            width:30vh;
-            border-radius: 100%;
-            align-content: center;
-            position: absolute;
-            top: 30px;
-            align-items: center;
-        }
-        .row{
-            color:rgb(175, 166, 166);
-            background-color: white;
-            position:relative;
-            height:12vh;
-            width:80%;
-            justify-self: center;
-            border-radius: 40px;
-            left: 70px;
-            display:flex;
-            align-items: center;
-            justify-content: left;
-        }
-        .row_part{
-            background-color: rgb(76, 148, 241);
-            position:absolute;
-            height:12vh;
-            top:0px;
-            right:0px;
-            width:50%;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-             
-        }
-        .contain{
-            height: 40vh;
-            width: 25vh;
-            background-color: rgb(97, 162, 202);
-            margin:10px;
-            justify-content:space-evenly;
-            padding: 20px;
-            border-radius: 20px;
-        }
-        .float{
-            float: left;
-        }
-        .ingre {
-            font-weight: 600;
-            color:black;
-            font-size:xx-large;
-            text-align: center;  
-        }
-        .foo {
-            height: 80px;
-        }
-        .instruct{
-            font-weight: 600;
-            font-size: xx-large;
-            position:absolute;
-            text-align: center;
-            left: 30px;
-        }
+.button {
+height: 7vh;
+background-color: rgb(236, 234, 234);
+border-radius: 35px;
+margin-left: 40px;
+position: relative;
+max-width: 80%;
+margin-top: 10vh;
+padding: 20px;
+}
+.update{
+   
+    color: white;
+    font-weight: 700px;
+    align-items: center;
+    text-align: center;
+}
+
+
+img {
+    border-radius: 100px;
+    margin-left: 150px;
+    
+}
+.subtopic{
+    position:relative;
+}
+.change {
+position: absolute;
+top:-20px;
+right: 200px;
+}
+.item {
+    position: absolute;
+    left:20px;
+}
+.profile{
+    position: relative;
+    background-color: rgb(241, 241, 241);
+    max-width: 50%;
+    margin-left: 150px;
+    height: 35vh;
+    border-radius: 20px;
+}
+.profile-part{
+ position: absolute;
+ right:150px;
+ top:-20px;
+ color:rgb(104, 106, 107)
+}
     </style>
 </head>
-<body class="fit-content">
-    <img src="static\pictures\noodles.jpg" alt="noodles" id="noodles">
-    <div class="container">
-        <div class="small"></div>
-        <h2>Noodles</h2>
-        <div class="row">
-            <p class="instruct">Instructions</p>
-            <div class="row_part">
-                <p class="ingre">Ingredients</p>
-            </div>
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\NOODLES (1).jpg" alt="Noodles" class="foo">
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\beef.jpeg" alt="meat" class="foo">
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\carrot.jpeg" alt="cabbage" class="foo">   
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\oil.jpeg" alt="meat" class="foo">
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\pepper.jpeg" alt="meat" class="foo">
-        </div>
-        <div class="contain float">
-            <img src="static\pictures\onion.jpeg" alt="meat" class="foo">
+<body>
+   <h1>My profile</h1>
+   <div class="subtopic">
+        <h4>Personal details</h4>
+        <p class="change">change</p>
+   </div>
+    <div class="profile">
+        <img src="placeholderit" width="150" height="150">
+        <div class="profile-part">
+            <h4>{{username}}</h4>
+            <p>{{username}}@kibo.school</p><hr>
+            <p>Yaba Lagos</p><hr>
         </div>
     </div>
+    <div class="container">
+        <h3  class="item">Notification</h3>
+    </div>
+    <div class="container">
+        <h3  class="item">Pending reviews</h3>
+    </div>
+    <div class="container">
+        <h3  class="item">Faq</h3>
+    </div>
+    <div class="container">
+        <h3 class="item">Help</h3>
+    </div>
+    <div class="button">
+        <h2 class ="update">Update</h2>
+    </div>
 </body>
+
 </html>
