@@ -15,5 +15,25 @@ class User(db.Model):
     date_registered = db.Column(db.Date)
     date_confirmed = db.Column(db.Date)
     
-#class Food    
+
+class Planner(db.Model):
+    __tablename__ = 'planner'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100), nullable=False)
+    time = db.Column(db.String(50))
+    date = db.Column(db.Date)
+    details = db.Column(db.Text)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    user = db.relationship('User', backref=db.backref('planners', lazy=True))
+    
+
+class Food(db.Model):
+    __tablename__ = 'food'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(1000))
+    image = db.Column(db.String(1000))
+    details = db.Column(db.String(1000))
+    
 

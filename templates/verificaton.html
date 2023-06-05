@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification Input Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        h1{
+            text-align: center;
+            margin-top: 1;
+        }
+
+        p{
+            text-align: center;
+        }
+        .verification-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .verification-input label {
+            margin-right: 10px;
+        }
+
+        .verification-input input[type="text"] {
+            width: 50px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .verification-input input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>CampusCare365</h1>
+        <p>We've sent a verification code to your email</p>
+    </div>
+    <div class="container">
+        <h2>Verification Code</h2>
+        <p>Input your Code Here</p>
+        <form>
+            <div class="verification-input">
+                <label for="code1">Code:</label>
+                <input type="text" id="code1" maxlength="1" required>
+                <input type="text" id="code2" maxlength="1" required>
+                <input type="text" id="code3" maxlength="1" required>
+                <input type="text" id="code4" maxlength="1" required>
+            </div>
+            <div class="verification-input">
+                <input type="submit" value="Verify">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

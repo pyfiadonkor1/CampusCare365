@@ -3,6 +3,8 @@ from model import db, User
 import datetime
 import os
 import sqlalchemy as sa
+import smtplib
+import random
 
 
 
@@ -38,11 +40,14 @@ date = datetime.date.today()
  
 engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 inspector = sa.inspect(engine)
-if not inspector.has_table("user"):
+
+if not inspector.has_table("food"):
         with app.app_context():
-            db.drop_all()
             db.create_all()
             app.logger.info('Initialized the database!')
+            
+#if not inspector.has_table("planner"): 
+#if not inspector.has_table("user"):           
 else:
         app.logger.info('Database already contains the users table.')
 
@@ -59,7 +64,7 @@ def home():
     if 'email' not in session:
         return redirect('/signup-login')
     user = session['username']
-    return render_template('home1.html', user=user)
+    return render_template('home.html')
 
 @app.route("/signup-login")
 def user():
@@ -84,11 +89,7 @@ def schedule():
         return redirect('/signup-login')
     return render_template("schedule.html") 
 
-@app.route("/fitzone")
-def fitzone():
-    if 'email' not in session:
-        return redirect('/signup-login')
-    return render_template("fitzone.html")
+
  
 @app.route("/signup-login", methods=["GET","POST"])
 def get_info():
@@ -108,6 +109,10 @@ def get_info():
         elif authenticate == True:
             flash("Username or Email has been taken", "error")  
             return redirect("/signup-login")
+        
+        
+        
+        send_verification_email(email)
         
         
         new_user = User(username=username,
@@ -140,6 +145,104 @@ def get_info():
             return redirect('/signup-login')
         
     
+
+@app.route('/about')
+def about():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template('about.html')
+
+
+@app.route('/recipe_search', methods=["GET", "POST"])
+def recipe_searching():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("recipe_search.html")
+
+def authenticated(username, email):
+    user_by_username = User.query.filter_by(username=username).first()
+    user_by_email = User.query.filter_by(email=email).first()
+    
+    if user_by_username and user_by_username.username == username:
+        return True
+    if user_by_email and user_by_email.email == email:
+        return True
+    
+    return False
+
+   
+    
+def pass_validation(password,conf_password):
+    if str(password) == str(conf_password):
+        return True
+    return False    
+    
+def login_valid(email, password, remember_me=True):
+    user = User.query.filter_by(email=email).first()
+    
+    if user and user.password == password:
+        session['user_id'] = user.user_id
+        session['email'] = user.email
+        session['username'] = user.username
+
+        session.permanent = True
+
+        return user.username  
+
+    return None
+
+def send_verification_email(user_email):
+    # Generate a verification code
+    verification_code = generate_verification_code()
+    
+    # Email configuration
+    sender_email = 'gyamposu@gmail.com'  # Replace with your email address
+    sender_password = 'tjoadllrzwrmgzjq'  # Replace with your email password
+    subject = 'Email Verification Code from Campuscare365'
+    body = f'Your verification code is: {verification_code}'
+    
+    # Email settings
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    
+    try:
+        # Create a secure connection with the SMTP server
+       
+        server.starttls()
+        
+        # Login to your email account
+        server.login(sender_email, sender_password)
+        
+        # Create the email message
+        message = f'Subject: {subject}\n\n{body}'
+        
+        # Send the email
+        server.sendmail(sender_email, user_email, message)
+        
+        print('Verification email sent successfully!')
+    except Exception as e:
+        print(f'An error occurred while sending the verification email: {e}')
+    finally:
+        # Close the connection
+        server.quit()
+        
+        
+
+def generate_verification_code():
+    # Generate a random 6-digit verification code
+    return str(random.randint(1000, 9999))
+         
+        
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
 """@app.route('/mealplan_generator', methods=["GET","POST"])
 def generate_meal_plan():
     if request.method == 'POST':
@@ -161,51 +264,8 @@ def generate_meal_plan():
     if 'email' not in session:
         return redirect('/signup-login')
     return render_template("mealplan_generator.html")"""
-
-
-
-@app.route('/recipe_search', methods=["GET", "POST"])
-def recipe_searching():
-    if 'email' not in session:
-        return redirect('/signup-login')
-    return render_template("recipe_search.html")
-
-def authenticated(username, email):
-    user_by_username = User.query.filter_by(username=username).first()
-    user_by_email = User.query.filter_by(email=email).first()
     
-    if user_by_username and user_by_username.username == username:
-        return True
-    if user_by_email and user_by_email.email == email:
-        return True
     
-    return False
-
-    #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
+     #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
     #url = f'https://api.spoonacular.com/mealplanner/generate?timeFrame=day?diet={diet}'
-    #request.get(url)
-    
-def pass_validation(password,conf_password):
-    if str(password) == str(conf_password):
-        return True
-    return False    
-    
-def login_valid(email, password, remember_me=True):
-    user = User.query.filter_by(email=email).first()
-    
-    if user and user.password == password:
-        session['user_id'] = user.user_id
-        session['email'] = user.email
-        session['username'] = user.username
-
-        session.permanent = True
-
-        return user.username  
-
-    return None
-         
-        
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    #request.get(url)``
