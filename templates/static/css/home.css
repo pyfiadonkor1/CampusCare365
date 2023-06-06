@@ -152,7 +152,7 @@ button i {
 
 footer{
 	margin: 0;
-	padding: -70px;
+	padding: -50px;
 	box-sizing: border-box;
 	background-color: #062092;
 }
@@ -218,7 +218,6 @@ footer{
 }
 .footerBottom{
 	background-color: white;
-	padding: 10px;
 	text-align:center;
 	width: 100%;
 }

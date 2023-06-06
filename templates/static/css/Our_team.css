@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2 ;
+  color:#062092;
+}
+
+.heading{
+  
+  margin-bottom: -30px;
+  padding: 120px 0 30px 0;
+  grid-column: 1/-1;
+  text-align: center;
+}
+
+.heading>h1{
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 10px;
+  margin-bottom: 10px;
+  color: #062092;
+}
+.container{
+  max-width: 950px;
+  background:  #f2f2f2;
+  width: 100%;
+  padding: 80px 0;
+}
+
+.container .main-card{
+  width: 100%;
+  
+} 
+
+.main-card .cards {
+  display: flex;
+  justify-content:space-between;
+  margin: 0 20px;
+}
+
+.main-card .cards .card{
+  background:#fff ;
+  width: calc(100% / 3 - 10px);
+  padding: 30px;
+  border-radius: 24px;
+}
+
+.cards .card .content{
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.cards .card .content .img {
+height: 130px;
+width: 130px;  
+margin-bottom: 14px;
+background:  #062092;
+padding: 3px;
+border-radius: 50%;
+} 
+
+.card .content .img img{
+  height: 100%;
+  width:100%; 
+  object-fit: cover;
+  border-radius:50%; 
+  border: 3px solid #fff;
+
+}
+
+.card .content .details .name{
+  font-size: 20px;
+  font-weight:500;
+
+}
+
+.card .content .details .job{
+  font: size 20px;
+  color: #062092;
+}
+
+.card .content .media-icons{
+  display: flex;
+  margin-top: 10px;
+}
+
+.card .content .media-icons a{
+  height: 35px;
+  width:35px;
+  color: #fff;
+  background:  #062092;
+  margin:0 4px;
+  border-radius: 50%;
+  text-align: center; 
+  line-height: 35px;
+  font-size: 14px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease; 
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.content .media-icons a:hover{
+  border-color: #062092;
+  color:  #062092;
+  background: #fff;
+}
+@media (max-width:700px){
+	.footerNav ul{
+		flex-direction: column;
+	}
+	.footerNav ul li{
+		width: 100%;
+		text-align: center;
+		margin: 10px;
+	
+	}
+}
