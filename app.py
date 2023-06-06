@@ -60,9 +60,6 @@ def index():
 
 @app.route("/home")
 def home():
-    global firstname
-    if firstname:
-        return render_template('home.html', firstname=firstname)
     if 'email' not in session:
         return redirect('/signup-login')
     user = session['username']
