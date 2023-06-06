@@ -54,13 +54,15 @@ else:
 
     
 
-
 @app.route("/")
 def index():
     return render_template('index.html')
 
 @app.route("/home")
 def home():
+    global firstname
+    if firstname:
+        return render_template('home.html', firstname=firstname)
     if 'email' not in session:
         return redirect('/signup-login')
     user = session['username']
@@ -83,7 +85,26 @@ def mealmate():
         return redirect('/signup-login')
     return render_template("meal.html")
 
-@app.route("/team",methods=["GET", "POST"])
+
+
+
+@app.route('/create_plan', methods=["GET","POST"])
+def create():
+
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("create_plan.html")
+
+
+
+@app.route('/mealplan_generator', methods=["GET","POST"])
+def generate_meal_plan():
+
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("mealplan_generator.html")
+
+@app.route("/team")
 def ourteam():
     if 'email' not in session:
         return redirect('/signup-login')
@@ -151,7 +172,6 @@ def get_info():
             return redirect('/signup-login')
         
     
-
 @app.route('/about')
 def about():
     if 'email' not in session:
@@ -248,13 +268,6 @@ if __name__ == "__main__":
 
 
 
-
-@app.route('/mealplan_generator', methods=["GET","POST"])
-def generate_meal_plan():
-
-    if 'email' not in session:
-        return redirect('/signup-login')
-    return render_template("mealplan_generator.html")
     
     
      #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"

@@ -6,42 +6,58 @@
 </head>
 <body>
   <div id="planner-page" class="background-image"></div>
-  <header>
-    <div class="logo-container">
-      <img src="static/pictures/plan-removebg-preview (1).png" alt="FitZone Logo" class="logo">
-    <h1>Planner</h1>
-  </header>
+  
+<header> 
+  <div class="dropdown">
+      <button class="dropdown-btn">&#8801;</button>
+      <div class="dropdown-menu">
+      <a href="/home">Home</a>
+      <hr>
+      <a href="/meal-mate">Meal Mate</a>
+      <hr>
+      <a href="#">Profile</a>
+      
+      </div>
+  </div>
+  <div class="logo">
+      <img src="static/pictures/plan-removebg-preview (1).png" alt="Meal Mate Logo">
+      <div class="logo-text">
+      <div class="logo-name">Planner</div>
+      </div>
+  </div>
+</header>
 
-  <div class="container">
-    <div class="loader">
-      <div class="loading-bar"></div>
-    </div>
-
-    <div class="todo-list">
-      <!-- The to-do list items will be dynamically added here -->
-    </div>
-
-    <div class="calendar">
-      <!-- The calendar will be displayed here -->
-    </div>
-
-    <div class="add-todo">
-      <h2>Add Item to To-Do List</h2>
-      <form>
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required>
-
-        <input type="submit" value="Add Schedule">
-      </form>
-    </div>
+<div class="container">
+  <div class="loader">
+    <div class="loading-bar"></div>
   </div>
 
+  <div class="todo-list">
+    <!-- The to-do list items will be dynamically added here -->
+  </div>
+
+  <div class="calendar">
+    <!-- The calendar will be displayed here -->
+  </div>
+
+  <div class="add-todo">
+    <h2>Add Item to To-Do List</h2>
+    <form>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <input type="submit" value="Add Schedule">
+    </form>
+  </div>
+</div>
+
   <script src="static/script/planner.js"></script>
+  <script src="static/script/meal.js"></script>"
 </body>
 </html>
