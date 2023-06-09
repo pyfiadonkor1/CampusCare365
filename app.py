@@ -1,5 +1,6 @@
-from flask import Flask, session, render_template, request, redirect, flash
+from flask import Flask, session, render_template, request, redirect, flash, make_response
 from model import db, User
+from recipe import recipes
 import datetime
 import os
 import sqlalchemy as sa
@@ -62,8 +63,8 @@ def index():
 def home():
     if 'email' not in session:
         return redirect('/signup-login')
-    user = session['username']
-    return render_template('home.html')
+    firstname = session['username']
+    return render_template('home.html', firstname=firstname)
 
 @app.route("/signup-login")
 def user():
@@ -101,45 +102,7 @@ def generate_meal_plan():
         return redirect('/signup-login')
     return render_template("mealplan_generator.html")
 
-# Define a list of recipes with their related information
-recipes = [
-        {
-            'name': 'Jollof Rice',
-            'ingredients': ['2 cups long-grain rice', '1 onion,ﬁnely chopped', '2 tomatoes, blended or ﬁnely chopped', '1 red bell pepper, blended or ﬁnely chopped', '1 scotch bonnet pepper or habanero pepper,ﬁnely chopped(adjust according to your spice preference)', '3 cloves of garlic, minced', '1 teaspoon thyme', '1 teaspoon curry powder', '1teaspoonpaprika', '1 teaspoon dried thyme', '1 teaspoon dried parsley', '2 tablespoons tomato paste', '3 tablespoons vegetable oil', '2 cups chicken or vegetable broth', 'Salt to taste', 'Optional: 1 cup of mixed vegetables(carrots, peas, bell peppers)'],
-            'instructions': [
-                "Rinse the rice under cold water until the water runs clear. Drain and set aside.",
-                "Heat the vegetable oil in a large pot or Dutch oven over medium heat.",
-                "Add the chopped onions and sauté until they become translucent.",
-                "Stir in the minced garlic, blended tomatoes, blended red bell pepper, and chopped scotch bonnet pepper. Cook for about 5 minutes, allowing the mixture to reduce slightly.",
-                "Add the tomato paste, thyme, curry powder, paprika, dried thyme, dried parsley, and salt. Stir well to combine and cook for another 3-4 minutes.",
-                "Add the rice to the pot and stir until it is well coated with the tomato mixture.",
-                "Pour in the chicken or vegetable broth and bring to a boil. Reduce the heat to low, cover the pot, and let it simmer for about 20-25 minutes, or until the rice is cooked and all the liquid has been absorbed. If using mixed vegetables, add them to the pot during the last 5 minutes of cooking.",
-                "Once the rice is cooked, fluff it gently with a fork.",
-                "Remove from heat and let it rest for a few minutes before serving."
-                            ],
-            'nutrients': ['Calories: 300', 'Protein: 10g', 'Carbs: 50g', 'Fat: 5g']
-        },
 
-        {
-            'name': 'Noodles',
-            'ingredients': ['chicken breast', 'bell peppers', 'zucchini', 'olive oil', 'salt', 'pepper'],
-                "instructions": [
-        "Cook the noodles according to the package instructions until they are al dente. Drain and set aside.",
-        "Heat the vegetable oil in a large skillet or wok over medium-high heat.",
-        "Add the minced garlic and sliced onion to the skillet and stir-fry for about 1-2 minutes until fragrant and the onion becomes translucent.",
-        "Add the julienned carrot, sliced bell pepper, shredded cabbage, and broccoli florets to the skillet. Stir-fry for about 3-4 minutes or until the vegetables are tender-crisp.",
-        "Push the vegetables to one side of the skillet and add the cooked noodles to the other side.",
-        "Drizzle the soy sauce and oyster sauce (if using) over the noodles and toss everything together to combine. Stir-fry for another 2-3 minutes until the noodles are heated through and well coated with the sauce.",
-        "Optional: Drizzle sesame oil over the noodles and toss again to add extra flavor.",
-        "Season with salt and pepper to taste. Adjust the seasoning and sauce quantities based on your preference.",
-        "Remove from heat and transfer the stir-fried noodles to serving plates or bowls.",
-        "Garnish with sliced green onions, toasted sesame seeds, or chopped cilantro, if desired.",
-        "Serve the noodles hot as a main dish or as a side dish with your choice of protein."
-    ],
-            'nutrients': ['Calories: 250', 'Protein: 25g', 'Carbs: 10g', 'Fat: 12g']
-        }
-        
-]
 
 # Define the route that will display the recipe information
 @app.route('/recipe/<int:recipe_id>')
@@ -182,7 +145,7 @@ def get_info():
         
         
         
-        send_verification_email(email)
+       
         
         
         new_user = User(username=username,
@@ -208,8 +171,13 @@ def get_info():
                 firstname = user[0].capitalize()
             else:
                 firstname = username.capitalize()  
-            session['username'] = firstname     
-            return render_template("home.html", firstname = firstname)
+            session['username'] = firstname 
+             
+          
+                
+            
+   
+            return redirect("/home")
         else:
             flash("Invalid email or password", "error")
             return redirect('/signup-login')
@@ -227,6 +195,11 @@ def recipe_searching():
     if 'email' not in session:
         return redirect('/signup-login')
     return render_template("recipe_search.html")
+
+@app.route('/logout')
+def logout():
+    return redirect("/signup-login")
+
 
 def authenticated(username, email):
     user_by_username = User.query.filter_by(username=username).first()

@@ -9,17 +9,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="static\css\home.css">
 	<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var successModal = new bootstrap.Modal(document.getElementById('success-modal'));
-
-            // Show the success modal
-            successModal.show();
-
-            // Hide the success modal after 5 seconds
-            setTimeout(function() {
-                successModal.hide();
-            }, 5000);
-        });
+		function showSuccessModal() {
+			var successModal = new bootstrap.Modal(document.getElementById('success-modal'));
+		  
+			// Check if the success message has been shown before
+			if (!sessionStorage.getItem('successMessageShown')) {
+			  successModal.show();
+			  sessionStorage.setItem('successMessageShown', 'true');
+		  
+			  setTimeout(function() {
+				successModal.hide();
+			  }, 5000);
+			}
+		  }
+		  
+		  window.addEventListener('load', showSuccessModal);
+		  
+		  
+		  
     </script>
 	<title>CampusCare365-Home</title>
 </head>
@@ -37,6 +44,8 @@
             </div>
         </div>
     </div>
+ 
+
 	<div class="header">
 		<div class="logo">
 			<img src="static\pictures\Logo.jpg" alt="Your logo">
@@ -91,5 +100,15 @@
 		</div>
 	</div>
 </footer>
+<!--<script>
+    // Adjust the iframe height to fit the content
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.message === 'successLoaded') {
+        var successFrame = document.getElementById('success-frame');
+        successFrame.style.height = e.data.height + 'px';
+      }
+    }, false);
+  </script>-->
 </body>
+
 </html>
