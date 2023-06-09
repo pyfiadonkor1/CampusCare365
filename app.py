@@ -208,30 +208,30 @@ def send_verification_email(user_email):
     server = smtplib.SMTP(smtp_server, smtp_port)
     
     try:
-        # Create a secure connection with the SMTP server
+       
        
         server.starttls()
         
-        # Login to your email account
+        
         server.login(sender_email, sender_password)
         
-        # Create the email message
+        
         message = f'Subject: {subject}\n\n{body}'
         
-        # Send the email
+       
         server.sendmail(sender_email, user_email, message)
         
         print('Verification email sent successfully!')
     except Exception as e:
         print(f'An error occurred while sending the verification email: {e}')
     finally:
-        # Close the connection
+        
         server.quit()
         
         
 
 def generate_verification_code():
-    # Generate a random 6-digit verification code
+    
     return str(random.randint(1000, 9999))
          
         
