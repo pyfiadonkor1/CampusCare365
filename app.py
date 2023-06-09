@@ -54,7 +54,6 @@ else:
 
     
 
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -82,6 +81,77 @@ def mealmate():
     if 'email' not in session:
         return redirect('/signup-login')
     return render_template("meal.html")
+
+
+
+
+@app.route('/create_plan', methods=["GET","POST"])
+def create():
+
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("create_plan.html")
+
+
+
+@app.route('/mealplan_generator', methods=["GET","POST"])
+def generate_meal_plan():
+
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("mealplan_generator.html")
+
+# Define a list of recipes with their related information
+recipes = [
+        {
+            'name': 'Jollof Rice',
+            'ingredients': ['2 cups long-grain rice', '1 onion,ﬁnely chopped', '2 tomatoes, blended or ﬁnely chopped', '1 red bell pepper, blended or ﬁnely chopped', '1 scotch bonnet pepper or habanero pepper,ﬁnely chopped(adjust according to your spice preference)', '3 cloves of garlic, minced', '1 teaspoon thyme', '1 teaspoon curry powder', '1teaspoonpaprika', '1 teaspoon dried thyme', '1 teaspoon dried parsley', '2 tablespoons tomato paste', '3 tablespoons vegetable oil', '2 cups chicken or vegetable broth', 'Salt to taste', 'Optional: 1 cup of mixed vegetables(carrots, peas, bell peppers)'],
+            'instructions': [
+                "Rinse the rice under cold water until the water runs clear. Drain and set aside.",
+                "Heat the vegetable oil in a large pot or Dutch oven over medium heat.",
+                "Add the chopped onions and sauté until they become translucent.",
+                "Stir in the minced garlic, blended tomatoes, blended red bell pepper, and chopped scotch bonnet pepper. Cook for about 5 minutes, allowing the mixture to reduce slightly.",
+                "Add the tomato paste, thyme, curry powder, paprika, dried thyme, dried parsley, and salt. Stir well to combine and cook for another 3-4 minutes.",
+                "Add the rice to the pot and stir until it is well coated with the tomato mixture.",
+                "Pour in the chicken or vegetable broth and bring to a boil. Reduce the heat to low, cover the pot, and let it simmer for about 20-25 minutes, or until the rice is cooked and all the liquid has been absorbed. If using mixed vegetables, add them to the pot during the last 5 minutes of cooking.",
+                "Once the rice is cooked, fluff it gently with a fork.",
+                "Remove from heat and let it rest for a few minutes before serving."
+                            ],
+            'nutrients': ['Calories: 300', 'Protein: 10g', 'Carbs: 50g', 'Fat: 5g']
+        },
+
+        {
+            'name': 'Noodles',
+            'ingredients': ['chicken breast', 'bell peppers', 'zucchini', 'olive oil', 'salt', 'pepper'],
+                "instructions": [
+        "Cook the noodles according to the package instructions until they are al dente. Drain and set aside.",
+        "Heat the vegetable oil in a large skillet or wok over medium-high heat.",
+        "Add the minced garlic and sliced onion to the skillet and stir-fry for about 1-2 minutes until fragrant and the onion becomes translucent.",
+        "Add the julienned carrot, sliced bell pepper, shredded cabbage, and broccoli florets to the skillet. Stir-fry for about 3-4 minutes or until the vegetables are tender-crisp.",
+        "Push the vegetables to one side of the skillet and add the cooked noodles to the other side.",
+        "Drizzle the soy sauce and oyster sauce (if using) over the noodles and toss everything together to combine. Stir-fry for another 2-3 minutes until the noodles are heated through and well coated with the sauce.",
+        "Optional: Drizzle sesame oil over the noodles and toss again to add extra flavor.",
+        "Season with salt and pepper to taste. Adjust the seasoning and sauce quantities based on your preference.",
+        "Remove from heat and transfer the stir-fried noodles to serving plates or bowls.",
+        "Garnish with sliced green onions, toasted sesame seeds, or chopped cilantro, if desired.",
+        "Serve the noodles hot as a main dish or as a side dish with your choice of protein."
+    ],
+            'nutrients': ['Calories: 250', 'Protein: 25g', 'Carbs: 10g', 'Fat: 12g']
+        }
+        
+]
+
+# Define the route that will display the recipe information
+@app.route('/recipe/<int:recipe_id>')
+def view_recipe(recipe_id):
+    recipe = recipes[recipe_id]
+    return render_template('recipe.html', recipe_name=recipe['name'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], nutrients=recipe['nutrients'])
+
+@app.route("/team")
+def ourteam():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template("Our_team.html")
 
 @app.route("/schedule")
 def schedule():
@@ -145,7 +215,6 @@ def get_info():
             return redirect('/signup-login')
         
     
-
 @app.route('/about')
 def about():
     if 'email' not in session:
@@ -242,28 +311,6 @@ if __name__ == "__main__":
 
 
 
-
-"""@app.route('/mealplan_generator', methods=["GET","POST"])
-def generate_meal_plan():
-    if request.method == 'POST':
-        timeFrame = request.form.get("timeFrame")
-        targetCalories = request.form.get("targetCalories")
-        diet = request.form.get("diet")
-        exclude = request.form.get("exclude")
-        apiKey = 'bb96fafd19b64b4c86b0f79c917cd7fe'
-        URL = f'https://api.spoonacular.com/mealplanner/generate?apiKey={apiKey}&timeFrame={timeFrame}&targetCalories={targetCalories}&diet={diet}&exclude={exclude}'
-
-        response = requests.get(URL)
-        if response.status_code == 200:
-            meal_plan_data = response.json()
-            return render_template("mealGen_results.html", meal_plan_data=meal_plan_data)
-        else:
-            flash("Error: " + str(response.status_code), "error")
-            return redirect("/meal")
-
-    if 'email' not in session:
-        return redirect('/signup-login')
-    return render_template("mealplan_generator.html")"""
     
     
      #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
