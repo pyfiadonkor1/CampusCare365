@@ -285,3 +285,26 @@ img{
 		font-size: 19px;
 	}
 }
+
+div #flash-messages{
+	color: red;
+	width: max-content;
+	background-color: rgba(240, 0, 0, 0.2);
+	height: fit-content;
+	border-radius: 10px;
+	border: 2px;
+	border-color: red;
+	animation: flash 8s linear infinite;
+	
+}
+
+@keyframes flash {
+	0%, 50% {
+		opacity: 0;
+	  }
+	  25%, 75% {
+		opacity: 1;
+	  }
+	}
+	
+	

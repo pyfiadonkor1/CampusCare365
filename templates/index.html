@@ -74,11 +74,32 @@
         
       }  
 
-    
+      
+      
+      #success-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+      
    
     </style>
   </head>
   <body>
+    {% if session.get('signed_up') %}
+    <!-- Success message or modal -->
+    <div id="success-modal">
+      <h2>Welcome!</h2>
+      <p>Thank you for signing up. Enjoy your experience!</p>
+    </div>
+    {% endif %}
     <div class="main">
 
       <div class="header">
@@ -93,6 +114,15 @@
              Get Started
       </div>
     </a>
-    </div>  
+    </div> 
+    <script>
+      // JavaScript code to close the success modal after 3 seconds
+      setTimeout(function() {
+        var successModal = document.getElementById('success-modal');
+        if (successModal) {
+          successModal.style.display = 'none';
+        }
+      }, 3000);
+    </script> 
   </body>
 </html>

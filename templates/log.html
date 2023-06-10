@@ -38,15 +38,7 @@
 			<!-- login form -->
 			
 			<form class="login-box" method="POST">
-				{% with messages = get_flashed_messages() %}
-					{% if messages %}
-						<ul class="flash-messages">
-							{% for message in messages %}
-								<li class="{{ message[1] }}">{{ message[0] }}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-				{% endwith %}
+				
 			
 				<input type="email"
 					class="email ele"
@@ -64,16 +56,17 @@
 			<!-- signup form -->
 			
 			<form action="/signup-login" class="signup-box" method="POST">
-				{% with messages = get_flashed_messages() %}
-					{% if messages %}
-						<ul class="flash-messages">
-							{% for message in messages %}
-								<li class="{{ message[1] }}">{{ message[0] }}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-				{% endwith %}
-			
+				<div id="flash-messages">
+					{% with messages = get_flashed_messages() %}
+					  {% if messages %}
+						{% for message in messages %}
+						  <div class="flash-message">{{ message }}</div>
+						{% endfor %}
+					  {% endif %}
+					{% endwith %}
+				  </div>
+				  
+			  
 				<input type="text"
 					class="name ele"
 					placeholder="Enter your fullname"

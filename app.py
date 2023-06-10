@@ -155,6 +155,7 @@ def get_info():
         
         db.session.add(new_user)
         db.session.commit()
+        session['signed_up'] = True
              
         
         return render_template("index.html")
