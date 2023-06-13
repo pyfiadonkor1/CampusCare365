@@ -96,14 +96,34 @@ var foods = [
   },
 
   {
-    name: "Quesadillas",
-    ingredients: "4 large flour tortillas, 2 cups shredded cheese (such as cheddar, Monterey Jack, or a blend), Optional fillings: diced cooked chicken, cooked ground beef, sliced peppers, onions, diced tomatoes, chopped cilantro, or any other desired ingredients, Cooking oil or cooking spray.",
-    instructions: "To make cheese quesadillas, preheat a large non-stick skillet or griddle over medium heat. If using any fillings, pre-cook and prepare them beforehand. Place one tortilla flat on a clean surface and sprinkle about 1/2 cup of shredded cheese evenly over half of the tortilla. Add any desired fillings on top of the cheese, then fold the other half of the tortilla over the filling to create a half-moon shape. Repeat the process with the remaining tortillas and fillings. Lightly grease the preheated skillet or griddle with cooking oil or cooking spray. Place one quesadilla onto the skillet and cook for about 2-3 minutes, or until the bottom tortilla becomes golden brown and crispy. Flip the quesadilla using a spatula and cook for another 2-3 minutes on the other side until the cheese is melted and the tortilla is crispy. Remove the cooked quesadilla from the skillet and repeat the process with the remaining quesadillas. Allow the quesadillas to cool for a minute, then slice them into wedges or triangles. Serve the quesadillas warm with your choice of toppings, such as salsa, guacamole, sour cream, or pico de gallo. Enjoy!",
+    name: "Breakfast burrito",
+    ingredients: "4 large flour tortillas, 6 large eggs, 1 tablespoon cooking oil, 1 small onion, diced, 1 bell pepper, diced, 4-6 slices of cooked bacon or sausage (optional), 1 cup shredded cheese (such as cheddar or Monterey Jack), Salt and pepper to taste, Optional toppings: salsa, avocado slices, sour cream, chopped cilantro, or any other desired ingredients.",
+    instructions: "To make breakfast burritos, start by heating the cooking oil in a large skillet over medium heat. Add the diced onion and bell pepper to the skillet and sauté for 3-4 minutes until they become softened. If using bacon or sausage, crumble or chop it into small pieces and add it to the skillet. Cook for an additional 2-3 minutes until heated through. In a separate bowl, whisk the eggs until well beaten. Season with salt and pepper. Push the vegetables and meat to one side of the skillet, creating space for the eggs. Pour the beaten eggs into the empty space and scramble them until cooked to your desired consistency. Once the eggs are cooked, mix them together with the vegetables and meat in the skillet. Warm the flour tortillas in the microwave or on a dry skillet to make them pliable. Place a tortilla on a clean surface and spoon a portion of the egg mixture onto the center of the tortilla. Sprinkle shredded cheese on top of the egg mixture. Fold the sides of the tortilla over the filling, then roll it tightly to create a burrito shape. Repeat the process with the remaining tortillas and filling. Optional: To melt the cheese and warm the burrito, you can place the assembled burritos on a hot skillet or in a preheated oven for a few minutes. Serve the breakfast burritos warm with optional toppings such as salsa, avocado slices, sour cream, or chopped cilantro. Enjoy your delicious breakfast!",
 
     image: "static/pictures/jollof.jpg",
 
-    nutrients: " Calories: 300-400, Carbohydrates: 30-40 grams, Protein: 10-15 grams, Fat: 15-20 grams, Fiber: 2-3 grams, Sodium: 500-600 milligrams, Vitamin A: 10-15% (of the recommended daily intake), Vitamin C: 2-4% (of the recommended daily intake), Calcium: 20-25% (of the recommended daily intake), Iron: 10-15% (of the recommended daily intake)."
+    nutrients: " Calories: 400-500, Carbohydrates: 25-30 grams, Protein: 15-20 grams, Fat: 25-30 grams, Fiber: 2-4 grams, Sodium: 500-600 milligrams, Vitamin A: 15-20% of the recommended daily intake, Vitamin C: 40-50% of the recommended daily intake, Calcium: 20-25% of the recommended daily intake, Iron: 10-15% of the recommended daily intake."
   },
+
+  {
+    name: "Chocolate mug cake",
+    ingredients: "4 tablespoons all-purpose flour, 2 tablespoons granulated sugar, 2 tablespoons unsweetened cocoa powder, 1/8 teaspoon baking powder, Pinch of salt, 3 tablespoons milk, 2 tablespoons vegetable oil, 1/4 teaspoon vanilla extract, Optional toppings: powdered sugar, whipped cream, chocolate chips, or berries.",
+    instructions: "To make a chocolate mug cake, start by combining the all-purpose flour, granulated sugar, cocoa powder, baking powder, and salt in a microwave-safe mug. Stir until well combined. Add the milk, vegetable oil, and vanilla extract to the mug. Stir until the batter is smooth and there are no lumps. Place the mug in the microwave and cook on high power for about 1-2 minutes. Cooking time may vary depending on the wattage of your microwave, so keep an eye on it to avoid overcooking. The cake should rise and become firm to the touch but still moist. Remove the mug from the microwave, (careful, it will be hot) and let it cool for a minute or two. Optional: Sprinkle powdered sugar, add a dollop of whipped cream, or sprinkle chocolate chips or berries on top for added flavor and decoration. Enjoy the chocolate mug cake while it's still warm and gooey!",
+
+    image: "static/pictures/jollof.jpg",
+
+    nutrients: " Calories: 300-350, Carbohydrates: 40-45 grams, Protein: 4-5 grams, Fat: 15-20 grams, Fiber: 3-4 grams, Sodium: 150-200 milligrams, Vitamin A: 2-4% of the recommended daily intake, Vitamin C: 0%, Calcium: 4-6% of the recommended daily intake, Iron: 10-15% of the recommended daily intake."
+  },
+
+  {
+    name: "Fruit salad",
+    ingredients: "2 cups of mixed fruits (examples: strawberries, blueberries, grapes, pineapple, watermelon, cantaloupe, kiwi, oranges, etc.), 1 tablespoon freshly squeezed lemon juice (optional, to prevent browning of fruits), Optional: 1-2 tablespoons honey or maple syrup (for added sweetness), Optional: Fresh mint leaves for garnish.",
+    instructions: "To make a mixed fruit salad, start by washing all the fruits thoroughly. Prepare the fruits by removing any stems, seeds, or peels as necessary. Cut the fruits into bite-sized pieces and place them in a large bowl. If desired, drizzle the freshly squeezed lemon juice over the fruits and gently toss to coat. This will help prevent browning and add a hint of tanginess. If you prefer a sweeter fruit salad, you can add honey or maple syrup at this point. Drizzle it over the fruits and gently toss to combine. Optional: Tear some fresh mint leaves into small pieces and sprinkle them over the fruit salad for added freshness and aroma. Once the fruits are well-coated and combined, cover the bowl and refrigerate for at least 30 minutes to allow the flavors to meld and the salad to chill. Before serving, give the fruit salad a gentle stir to redistribute the juices. Serve the fruit salad chilled and enjoy!",
+
+    image: "static/pictures/jollof.jpg",
+
+    nutrients: " Calories: 80-120, Carbohydrates: 20-30 grams, Protein: 1-2 grams, Fat: 0-1 gram, Fiber: 3-5 grams, Vitamin A: 10-20% of the recommended daily intake, Vitamin C: 50-100% of the recommended daily intake, Calcium: 2-4% of the recommended daily intake, Iron: 2-4% of the recommended daily intake."
+  }
 
 
 
