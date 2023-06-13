@@ -156,21 +156,21 @@ eggs are fully cooked but still moist.
                             "Optional toppings: shredded lettuce, diced tomatoes, grated cheese, sliced avocado,sour cream, salsa, cilantro, lime wedges"],
             
             "instructions": ["""
-1. Heat the cooking oil in a large skillet over medium heat.
-2. Add the diced onion to the skillet and cook for 2-3 minutes until it becomes translucent.
-3. Add the minced garlic to the skillet and cook for another minute until fragrant.
-4. Increase the heat to medium-high and add the ground beef to the skillet. Break up the
-meat using a spatula or wooden spoon and cook until it is browned and cooked through.
-5. Drain any excess fat from the skillet, if desired.
-6. Add the chili powder, ground cumin, paprika, salt, and pepper to the skillet. Stir well to
-combine and cook for an additional 2-3 minutes to allow the flavors to meld.
-7. Warm the tortillas according to the package instructions or by heating them on a dry
-skillet for a few seconds on each side.
-8. Fill each tortilla with a portion of the beef mixture, and add desired toppings such as
-shredded lettuce, diced tomatoes, grated cheese, sliced avocado, sour cream, salsa,
-cilantro, or a squeeze of lime juice.
-9. Serve the tacos warm and enjoy!
-"""],
+                        1. Heat the cooking oil in a large skillet over medium heat.
+                        2. Add the diced onion to the skillet and cook for 2-3 minutes until it becomes translucent.
+                        3. Add the minced garlic to the skillet and cook for another minute until fragrant.
+                        4. Increase the heat to medium-high and add the ground beef to the skillet. Break up the
+                        meat using a spatula or wooden spoon and cook until it is browned and cooked through.
+                        5. Drain any excess fat from the skillet, if desired.
+                        6. Add the chili powder, ground cumin, paprika, salt, and pepper to the skillet. Stir well to
+                        combine and cook for an additional 2-3 minutes to allow the flavors to meld.
+                        7. Warm the tortillas according to the package instructions or by heating them on a dry
+                        skillet for a few seconds on each side.
+                        8. Fill each tortilla with a portion of the beef mixture, and add desired toppings such as
+                        shredded lettuce, diced tomatoes, grated cheese, sliced avocado, sour cream, salsa,
+                        cilantro, or a squeeze of lime juice.
+                        9. Serve the tacos warm and enjoy!
+                                """],
             
             'nutrients': ["Calories: 400-500", 
                           "Carbohydrates: 30-35 grams", 
