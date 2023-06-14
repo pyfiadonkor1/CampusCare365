@@ -31,28 +31,6 @@ cells.forEach((cell) => {
       this.textContent = "+";
     }
 
-// Save grid data to local storage
-function saveGridData() {
-  const gridData = Array.from(cells).map((cell) => cell.textContent.trim());
-  localStorage.setItem("mealPlannerGrid", JSON.stringify(gridData));
-}
+})
 
-// Load grid data from local storage
-function loadGridData() {
-  const savedGridData = localStorage.getItem("mealPlannerGrid");
-  if (savedGridData) {
-    const gridData = JSON.parse(savedGridData);
-    cells.forEach((cell, index) => {
-      cell.textContent = gridData[index];
-    });
-  }
-}
-
-// Attach event listener to the Save button
-const saveButton = document.getElementById("save-button");
-saveButton.addEventListener("click", saveGridData);
-
-// Load the grid data when the page loads
-document.addEventListener("DOMContentLoaded", loadGridData);
-  });
 });
