@@ -11,8 +11,6 @@ import random
 
 
 
-
-
 def create_app():
     app = Flask(__name__, template_folder="templates", 
             static_folder="templates/static")
@@ -99,6 +97,10 @@ def create():
     return render_template("create_plan.html")
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 @app.route('/mealplan_generator', methods=["GET","POST"])
 def generate_meal_plan():
@@ -114,6 +116,7 @@ def generate_meal_plan():
 def view_recipe(recipe_id):
     recipe = recipes[recipe_id]
     return render_template('recipe.html', recipe_name=recipe['name'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], nutrients=recipe['nutrients'])
+
 
 @app.route("/team")
 def ourteam():
