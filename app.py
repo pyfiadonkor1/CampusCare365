@@ -57,7 +57,12 @@ else:
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    if session('sign_up'):
+     session['signed_up'] = False
+     return render_template("index.html", show_success=True)
+    else:
+     return render_template("index.html", show_success=False)
+    
 
 @app.route("/home")
 def home():
@@ -239,8 +244,8 @@ def send_verification_email(user_email):
     verification_code = generate_verification_code()
     
     # Email configuration
-    sender_email = 'gyamposu@gmail.com'  # Replace with your email address
-    sender_password = 'tjoadllrzwrmgzjq'  # Replace with your email password
+    sender_email = 'gyamposu@gmail.com'  
+    sender_password = 'tjoadllrzwrmgzjq'  
     subject = 'Email Verification Code from Campuscare365'
     body = f'Your verification code is: {verification_code}'
     
@@ -287,6 +292,6 @@ if __name__ == "__main__":
 
     
     
-     #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
+    #url1 = "https://api.spoonacular.com/mealplanner/generate?timeFrame=day"
     #url = f'https://api.spoonacular.com/mealplanner/generate?timeFrame=day?diet={diet}'
     #request.get(url)``
