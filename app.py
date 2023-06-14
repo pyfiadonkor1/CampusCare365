@@ -97,9 +97,7 @@ def create():
     return render_template("create_plan.html")
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+
 
 
 @app.route('/mealplan_generator', methods=["GET","POST"])
