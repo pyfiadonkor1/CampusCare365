@@ -55,10 +55,6 @@ else:
 
 @app.route("/")
 def index():
-    if session('sign_up'):
-     session['signed_up'] = False
-     return render_template("index.html", show_success=True)
-    else:
      return render_template("index.html", show_success=False)
     
 
@@ -109,7 +105,7 @@ def generate_meal_plan():
 
 
 
-# Define the route that will display the recipe information
+
 @app.route('/recipe/<int:recipe_id>')
 def view_recipe(recipe_id):
     recipe = recipes[recipe_id]
