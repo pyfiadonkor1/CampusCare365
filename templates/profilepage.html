@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .profile-image {
+            width: 25%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+        
+        .profile-section {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .profile-section h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .button:hover {
+            background-color: #45a049;
+        }
+        
+        .verify-email {
+            text-align: right;
+        }
+
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="profile-image" src="static\pictures\puff.jpeg" alt="Profile Picture">
+        
+        <div class="profile-section">
+            <h2>Edit Profile</h2>
+            <a href="/edit-profile" class="button">Edit Profile</a>
+        </div>
+        
+        <div class="profile-section verify-email">
+            <h2>Verify Email</h2>
+            <a href="/verify" class="button">Verify Email</a>
+            
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+    
+</body>
+</html>

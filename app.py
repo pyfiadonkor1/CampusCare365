@@ -199,8 +199,41 @@ def recipe_searching():
         return redirect('/signup-login')
     return render_template("recipe_search.html")
 
+@app.route('/edit-profile')
+def edit_profile():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template('profile.html')
+
+@app.route('/edit-profile', methods=["GET", "POST"])
+def edit_profile():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    
+    fullname = request.form['fullname']
+    email = request.form['email']
+    password = request.form['password']
+    return render_template('profile.html')
+
+@app.route('/verify')
+def verify():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    email = session['email']
+    ver = send_verification_email(email)
+    return render_template('verification.html')
+
+@app.route('/profile')
+def profile():
+    if 'email' not in session:
+        return redirect('/signup-login')
+    return render_template('profilepage.html')
+
+
+    
 @app.route('/logout')
 def logout():
+    session.pop('email', None)
     return redirect("/signup-login")
 
 
@@ -235,6 +268,9 @@ def login_valid(email, password, remember_me=True):
         return user.username  
 
     return None
+
+
+
 
 def send_verification_email(user_email):
     # Generate a verification code

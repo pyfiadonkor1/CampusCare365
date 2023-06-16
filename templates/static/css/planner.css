@@ -195,3 +195,21 @@ body {
 .add-todo input[type="submit"]:hover {
   background-color: #444;
 }
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+/* Adjust font size and alignment */
+input[type="submit"] {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px
+}
