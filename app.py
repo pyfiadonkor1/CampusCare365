@@ -205,6 +205,7 @@ def recipe_searching():
 def edit_profile():
     if 'email' not in session:
         return redirect('/signup-login')
+    session['update'] = False
     return render_template('profile.html')
 
 @app.route('/edit-profile', methods=["GET", "POST"])
@@ -225,7 +226,7 @@ def edit_profile_info():
         
         user_id = session['user_id']
         user = User.query.get(user_id)
-        session['update'] = True
+        
         
         if fullname and email and password:
             user.email = email
