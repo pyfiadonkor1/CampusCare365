@@ -62,7 +62,9 @@ def index():
 def home():
     if 'email' not in session:
         return redirect('/signup-login')
-    firstname = session['username']
+    firstname = session['username']  
+    firstname = firstname.capitalize()    
+             
     return render_template('home.html', firstname=firstname)
 
 @app.route("/signup-login")
@@ -169,7 +171,7 @@ def get_info():
         
         if login_valid(email, password):
             username = login_valid(email,password)
-            user = username.split()
+            user = username.split(" ")
             if len(user) >= 2:
                 firstname = user[0].capitalize()
             else:
@@ -206,21 +208,79 @@ def edit_profile():
     return render_template('profile.html')
 
 @app.route('/edit-profile', methods=["GET", "POST"])
-def edit_profile():
-    if 'email' not in session:
-        return redirect('/signup-login')
-    
-    fullname = request.form['fullname']
-    email = request.form['email']
-    password = request.form['password']
-    return render_template('profile.html')
+def edit_profile_info():
+    if request.method == 'POST':
+        fullname = request.form['fullname']
+        email = request.form['email']
+        password = request.form['password']
+        
+        print(fullname + email + password)
+        
+        if fullname == "":
+            fullname = None
+        if email  == "":
+            email = None
+        if password == "":
+            password = None        
+        
+        user_id = session['user_id']
+        user = User.query.get(user_id)
+        session['update'] = True
+        
+        if fullname and email and password:
+            user.email = email
+            user.username = fullname
+            user.password = password
+            session['update'] = True
+        
+        elif  email and fullname:
+            user.email = email
+            user.username = fullname 
+            session['update'] = True
+        
+        elif email and password:
+            user.email = email       
+            user.password = password
+            session['update'] = True
+        
+        elif fullname and password:
+            user.username = fullname
+            user.password = password
+            session['update'] = True
+        
+        else:
+            if password and fullname == None == email:
+                user.password = password
+            elif fullname and password == None == email:
+                user.username = fullname
+                print("vut")
+            elif email and not any(request.form.values()):
+                user.email = email
+            session['update'] = True
+        session['user_id'] = user.user_id
+        session['email'] = user.email
+        session['username'] = user.username    
+    db.session.commit()    
+                                     
+        
+    return redirect('/home')
 
-@app.route('/verify')
+@app.route('/verify', methods=["GET","POST"])
 def verify():
     if 'email' not in session:
         return redirect('/signup-login')
     email = session['email']
     ver = send_verification_email(email)
+    code1 = str(request.form['code1'])
+    code2 = str(request.form['code2'])
+    code3 = str(request.form['code3'])
+    code4 = str(request.form['code4'])
+    code = (code1+code2+code3+code4)
+    
+    if code == ver:
+        msg = ("success")
+        return redirect("/home")
+    
     return render_template('verification.html')
 
 @app.route('/profile')
@@ -273,9 +333,7 @@ def login_valid(email, password, remember_me=True):
 
 
 def send_verification_email(user_email):
-    # Generate a verification code
     verification_code = generate_verification_code()
-    
     # Email configuration
     sender_email = 'gyamposu@gmail.com'  
     sender_password = 'tjoadllrzwrmgzjq'  
@@ -286,11 +344,11 @@ def send_verification_email(user_email):
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     
-    server = smtplib.SMTP(smtp_server, smtp_port)
+    
+    
     
     try:
-       
-       
+        server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
         
         
@@ -303,11 +361,15 @@ def send_verification_email(user_email):
         server.sendmail(sender_email, user_email, message)
         
         print('Verification email sent successfully!')
-    except Exception as e:
-        print(f'An error occurred while sending the verification email: {e}')
-    finally:
         
         server.quit()
+        return verification_code
+        
+    except Exception as e:
+        print(f'An error occurred while sending the verification email: {e}')
+    
+        
+        
         
         
 

@@ -263,10 +263,10 @@ green onions, sour cream, or shredded cheese."""],
                             "Fat: 5-8 grams",
                             "Fiber: 8-10grams",
                             "Sodium: 300-400 milligrams",
-                            "Vitamin A: 15-20% of the recommended daily intake",
-                            "Vitamin C:40-50% of the recommended daily intake",
-                            "Calcium: 4-6% of the recommended daily intake",
-                            "Iron:15-20% of the recommended daily intake"]
+                            "Vitamin A: 15-20% (of the recommended daily intake)",
+                            "Vitamin C:40-50% (of the recommended daily intake)",
+                            "Calcium: 4-6% (of the recommended daily intake)",
+                            "Iron:15-20% (of the recommended daily intake)"]
             },
 
             {
@@ -294,10 +294,10 @@ or crumbled feta cheese.
                         "Fat: 20-25 grams",
                         "Fiber: 10-12grams",
                         "Sodium: 300-400 milligrams",
-                        "Vitamin A: 10-15% of the recommended daily intake",
-                        "Vitamin C:20-25% of the recommended daily intake",
-                        "Calcium: 4-6% of the recommended daily intake",
-                        "Iron: 6-8%of the recommended daily intake"]
+                        "Vitamin A: 10-15% (of the recommended daily intake)",
+                        "Vitamin C:20-25% (of the recommended daily intake)",
+                        "Calcium: 4-6% (of the recommended daily intake)",
+                        "Iron: 6-8% (of the recommended daily intake)"]
             },
 
             {
@@ -345,10 +345,10 @@ chopped cilantro or parsley, if desired."""],
                             "Fat: 10-15 grams",
                             "Fiber: 5-8 grams",
                             "Sodium: 500-600 milligrams",
-                            "Vitamin A: 20-30% of the recommended daily intake",
-                            "Vitamin C: 80-100% of the recommended daily intake",
-                            "Calcium: 4-6% of the recommended daily intake",
-                            "Iron: 6-8% of the recommended daily intake"],
+                            "Vitamin A: 20-30% (of the recommended daily intake)",
+                            "Vitamin C: 80-100% (of the recommended daily intake)",
+                            "Calcium: 4-6% (of the recommended daily intake)",
+                            "Iron: 6-8% (of the recommended daily intake)"],
             },
 
             {
@@ -392,10 +392,10 @@ cream, or chopped cilantro."""],
                             "Fat: 25-30 grams",
                             "Fiber: 2-4grams",
                             "Sodium: 500-600 milligrams",
-                            "Vitamin A: 15-20% of the recommended daily intake",
-                            "Vitamin C:40-50% of the recommended daily intake",
-                            "Calcium: 20-25% of the recommended daily intake",
-                            "Iron:10-15% of the recommended daily intake"]
+                            "Vitamin A: 15-20% (of the recommended daily intake)",
+                            "Vitamin C:40-50% (of the recommended daily intake)",
+                            "Calcium: 20-25% (of the recommended daily intake)",
+                            "Iron:10-15% (of the recommended daily intake)"]
                     },
 
                 {
@@ -429,10 +429,10 @@ chips or berries on top for added flavor and decoration.
                             "Protein: 4-5 grams Fat: 15-20 grams",
                             "Fiber: 3-4 grams",
                             "Sodium: 150-200 milligrams",
-                            "Vitamin A: 2-4% of the recommended daily intake",
+                            "Vitamin A: 2-4% (of the recommended daily intake)",
                             "Vitamin C: 0%"
-                            "Calcium: 4-6% of the recommended daily intake",
-                            "Iron: 10-15% of the recommended daily intake"]
+                            "Calcium: 4-6% (of the recommended daily intake)",
+                            "Iron: 10-15% (of the recommended daily intake)"]
             },
 
             {
@@ -463,9 +463,9 @@ minutes to allow the flavors to meld and the salad to chill.
                         "Protein: 1-2 grams",
                         "Fat: 0-1 gram",
                         "Fiber: 3-5 grams",
-                        "Vitamin A: 10-20% of the recommended daily intake",
-                        "Vitamin C: 50-100% of the recommended daily",
-                        "intake Calcium: 2-4% of the recommended daily intake",
-                        "Iron: 2-4% of the recommended daily intake"]
+                        "Vitamin A: 10-20% (of the recommended daily intake)",
+                        "Vitamin C: 50-100% (of the recommended daily)",
+                        "intake Calcium: 2-4% (of the recommended daily intake)",
+                        "Iron: 2-4% (of the recommended daily intake)"]
                 }
 ]
